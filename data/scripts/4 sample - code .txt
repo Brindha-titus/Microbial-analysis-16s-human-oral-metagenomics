@@ -1,0 +1,2142 @@
+Last login: Fri Feb 13 21:38:00 on ttys001
+(base) brindha@Brindhas-MacBook-Air ~ % cd "/Users/brindha/Documents/R- microbiome analysis/16s/oral_microbiome"
+ls -lah
+
+total 64
+drwxr-xr-x   7 brindha  staff   224B 13 Feb 21:39 .
+drwxr-xr-x@ 11 brindha  staff   352B 13 Feb 20:17 ..
+-rw-r--r--@  1 brindha  staff   8.0K 13 Feb 21:28 .DS_Store
+-rw-r--r--   1 brindha  staff   502B 13 Feb 21:31 manifest.csv
+-rw-r--r--@  1 brindha  staff    13K 13 Feb 21:39 qiime2-amplicon-2023.9-py38-osx-conda.yml
+drwxr-xr-x  15 brindha  staff   480B 13 Feb 20:17 raw_data
+drwxr-xr-x   2 brindha  staff    64B 13 Feb 21:28 reads_qza
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % ls -lah raw_data
+
+total 871064
+drwxr-xr-x  15 brindha  staff   480B 13 Feb 20:17 .
+drwxr-xr-x   7 brindha  staff   224B 13 Feb 21:39 ..
+-rw-r--r--@  1 brindha  staff   6.0K 13 Feb 20:29 .DS_Store
+-rw-r--r--@  1 brindha  staff   247B 13 Feb 20:17 metadata4.csv
+-rw-r--r--@  1 brindha  staff   217B 13 Feb 20:17 metadata4.tsv
+-rw-r--r--@  1 brindha  staff    32M 13 Feb 16:36 SRR16600068_1.fastq.gz
+-rw-r--r--@  1 brindha  staff    37M 13 Feb 16:36 SRR16600068_2.fastq.gz
+-rw-r--r--@  1 brindha  staff    35M 13 Feb 16:36 SRR16600076_1.fastq.gz
+-rw-r--r--@  1 brindha  staff    38M 13 Feb 16:35 SRR16600076_2.fastq.gz
+-rw-r--r--@  1 brindha  staff    49M 13 Feb 16:35 SRR16600077_1.fastq.gz
+-rw-r--r--@  1 brindha  staff    59M 13 Feb 16:35 SRR16600077_2.fastq.gz
+-rw-r--r--@  1 brindha  staff    46M 13 Feb 19:50 SRR16600077_trim_1.fastq.gz
+-rw-r--r--@  1 brindha  staff    55M 13 Feb 19:50 SRR16600077_trim_2.fastq.gz
+-rw-r--r--@  1 brindha  staff    32M 13 Feb 16:36 SRR16600081_1.fastq.gz
+-rw-r--r--@  1 brindha  staff    38M 13 Feb 16:35 SRR16600081_2.fastq.gz
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % docker run --platform linux/amd64 -it --rm \
+  -v "/Users/brindha/Documents/R- microbiome analysis/16s/oral_microbiome:/data" \
+  quay.io/qiime2/amplicon:2023.9
+
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# docker run --platform linux/amd64 -it --rm \
+  -v "/Users/brindha/Documents/R- microbiome analysis/16s/oral_microbiome:/data" \
+  quay.io/qiime2/amplicon:2023.9
+bash: docker: command not found
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# docker run --platform linux/amd64 -it --rm   -v "/Users/brindha/Documents/R- microbiome analysis/16s/oral_microbiome:/data"   quay.io/qiime2/amplicon:2023.9
+bash: docker: command not found
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# docker run --platform linux/amd64 -it --rm \
+  -v "/Users/brindha/Documents/R- microbiome analysis/16s/oral_microbiome:/data" \
+  quay.io/qiime2/amplicon:2023.9
+bash: docker: command not found
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# ls -lah
+ls -lah raw_data
+total 36K
+drwxr-xr-x  7 root root  224 Feb 13 16:09 .
+drwxr-xr-x  1 root root 4.0K Feb 13 16:20 ..
+-rw-r--r--  1 root root 8.1K Feb 13 15:58 .DS_Store
+-rw-r--r--  1 root root  502 Feb 13 16:01 manifest.csv
+-rw-r--r--  1 root root  13K Feb 13 16:09 qiime2-amplicon-2023.9-py38-osx-conda.yml
+drwxr-xr-x 15 root root  480 Feb 13 14:47 raw_data
+drwxr-xr-x  2 root root   64 Feb 13 15:58 reads_qza
+total 426M
+drwxr-xr-x 15 root root  480 Feb 13 14:47 .
+drwxr-xr-x  7 root root  224 Feb 13 16:09 ..
+-rw-r--r--  1 root root 6.1K Feb 13 14:59 .DS_Store
+-rw-r--r--  1 root root  33M Feb 13 11:06 SRR16600068_1.fastq.gz
+-rw-r--r--  1 root root  38M Feb 13 11:06 SRR16600068_2.fastq.gz
+-rw-r--r--  1 root root  35M Feb 13 11:06 SRR16600076_1.fastq.gz
+-rw-r--r--  1 root root  39M Feb 13 11:05 SRR16600076_2.fastq.gz
+-rw-r--r--  1 root root  49M Feb 13 11:05 SRR16600077_1.fastq.gz
+-rw-r--r--  1 root root  60M Feb 13 11:05 SRR16600077_2.fastq.gz
+-rw-r--r--  1 root root  47M Feb 13 14:20 SRR16600077_trim_1.fastq.gz
+-rw-r--r--  1 root root  56M Feb 13 14:20 SRR16600077_trim_2.fastq.gz
+-rw-r--r--  1 root root  32M Feb 13 11:06 SRR16600081_1.fastq.gz
+-rw-r--r--  1 root root  38M Feb 13 11:05 SRR16600081_2.fastq.gz
+-rw-r--r--  1 root root  247 Feb 13 14:47 metadata4.csv
+-rw-r--r--  1 root root  217 Feb 13 14:47 metadata4.tsv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# head manifest.csv
+sample-id,absolute-filepath,direction
+SRR16600068,/data/raw_data/SRR16600068_1.fastq.gz,forward
+SRR16600068,/data/raw_data/SRR16600068_2.fastq.gz,reverse
+SRR16600076,/data/raw_data/SRR16600076_1.fastq.gz,forward
+SRR16600076,/data/raw_data/SRR16600076_2.fastq.gz,reverse
+SRR16600077,/data/raw_data/SRR16600077_1.fastq.gz,forward
+SRR16600077,/data/raw_data/SRR16600077_2.fastq.gz,reverse
+SRR16600081,/data/raw_data/SRR16600081_1.fastq.gz,forward
+SRR16600081,/data/raw_data/SRR16600081_2.fastq.gz,reverse
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# sample-id,absolute-filepath,direction
+SRR16600068,/data/raw_data/SRR16600068_1.fastq.gz,forward
+...
+bash: sample-id,absolute-filepath,direction: command not found
+bash: SRR16600068,/data/raw_data/SRR16600068_1.fastq.gz,forward: No such file or directory
+bash: ...: command not found
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime tools import \
+  --type 'SampleData[PairedEndSequencesWithQuality]' \
+  --input-path manifest.csv \
+  --output-path reads_qza/reads.qza \
+  --input-format PairedEndFastqManifestPhred33V2
+There was a problem importing manifest.csv:
+
+  manifest.csv is not a(n) PairedEndFastqManifestPhred33V2 file:
+
+  Found unrecognized ID column name 'sample-id,absolute-filepath,direction' while searching for header. The first column name in the header defines the ID column, and must be one of these values:
+
+  Case-insensitive: 'feature id', 'feature-id', 'featureid', 'id', 'sample id', 'sample-id', 'sampleid'
+
+  Case-sensitive: '#OTU ID', '#OTUID', '#Sample ID', '#SampleID', 'sample_name'
+
+  NOTE: Metadata files must contain tab-separated values.
+
+  There may be more errors present in the metadata file. To get a full report, sample/feature metadata files can be validated with Keemei: https://keemei.qiime2.org
+
+  Find details on QIIME 2 metadata requirements here: https://docs.qiime2.org/2023.9/tutorials/metadata/
+
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# cd /data
+rm -f manifest.csv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# cat > manifest.csv << 'EOF'
+sample-id,absolute-filepath,direction
+SRR16600068,/data/raw_data/SRR16600068_1.fastq.gz,forward
+SRR16600068,/data/raw_data/SRR16600068_2.fastq.gz,reverse
+SRR16600076,/data/raw_data/SRR16600076_1.fastq.gz,forward
+SRR16600076,/data/raw_data/SRR16600076_2.fastq.gz,reverse
+SRR16600077,/data/raw_data/SRR16600077_1.fastq.gz,forward
+SRR16600077,/data/raw_data/SRR16600077_2.fastq.gz,reverse
+SRR16600081,/data/raw_data/SRR16600081_1.fastq.gz,forward
+SRR16600081,/data/raw_data/SRR16600081_2.fastq.gz,reverse
+EOF
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# cat manifest.csv
+sample-id,absolute-filepath,direction
+SRR16600068,/data/raw_data/SRR16600068_1.fastq.gz,forward
+SRR16600068,/data/raw_data/SRR16600068_2.fastq.gz,reverse
+SRR16600076,/data/raw_data/SRR16600076_1.fastq.gz,forward
+SRR16600076,/data/raw_data/SRR16600076_2.fastq.gz,reverse
+SRR16600077,/data/raw_data/SRR16600077_1.fastq.gz,forward
+SRR16600077,/data/raw_data/SRR16600077_2.fastq.gz,reverse
+SRR16600081,/data/raw_data/SRR16600081_1.fastq.gz,forward
+SRR16600081,/data/raw_data/SRR16600081_2.fastq.gz,reverse
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime tools import \
+  --type 'SampleData[PairedEndSequencesWithQuality]' \
+  --input-path manifest.csv \
+  --output-path reads_qza/reads.qza \
+  --input-format PairedEndFastqManifestPhred33V2
+There was a problem importing manifest.csv:
+
+  manifest.csv is not a(n) PairedEndFastqManifestPhred33V2 file:
+
+  Found unrecognized ID column name 'sample-id,absolute-filepath,direction' while searching for header. The first column name in the header defines the ID column, and must be one of these values:
+
+  Case-insensitive: 'feature id', 'feature-id', 'featureid', 'id', 'sample id', 'sample-id', 'sampleid'
+
+  Case-sensitive: '#OTU ID', '#OTUID', '#Sample ID', '#SampleID', 'sample_name'
+
+  NOTE: Metadata files must contain tab-separated values.
+
+  There may be more errors present in the metadata file. To get a full report, sample/feature metadata files can be validated with Keemei: https://keemei.qiime2.org
+
+  Find details on QIIME 2 metadata requirements here: https://docs.qiime2.org/2023.9/tutorials/metadata/
+
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# cd /data
+ls -lah manifest.csv
+-rw-r--r-- 1 root root 502 Feb 13 16:25 manifest.csv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# cat -A manifest.csv
+sample-id,absolute-filepath,direction$
+SRR16600068,/data/raw_data/SRR16600068_1.fastq.gz,forward$
+SRR16600068,/data/raw_data/SRR16600068_2.fastq.gz,reverse$
+SRR16600076,/data/raw_data/SRR16600076_1.fastq.gz,forward$
+SRR16600076,/data/raw_data/SRR16600076_2.fastq.gz,reverse$
+SRR16600077,/data/raw_data/SRR16600077_1.fastq.gz,forward$
+SRR16600077,/data/raw_data/SRR16600077_2.fastq.gz,reverse$
+SRR16600081,/data/raw_data/SRR16600081_1.fastq.gz,forward$
+SRR16600081,/data/raw_data/SRR16600081_2.fastq.gz,reverse$
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# sed -i 's/\r$//' manifest.csv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# cat -A manifest.csv | head
+sample-id,absolute-filepath,direction$
+SRR16600068,/data/raw_data/SRR16600068_1.fastq.gz,forward$
+SRR16600068,/data/raw_data/SRR16600068_2.fastq.gz,reverse$
+SRR16600076,/data/raw_data/SRR16600076_1.fastq.gz,forward$
+SRR16600076,/data/raw_data/SRR16600076_2.fastq.gz,reverse$
+SRR16600077,/data/raw_data/SRR16600077_1.fastq.gz,forward$
+SRR16600077,/data/raw_data/SRR16600077_2.fastq.gz,reverse$
+SRR16600081,/data/raw_data/SRR16600081_1.fastq.gz,forward$
+SRR16600081,/data/raw_data/SRR16600081_2.fastq.gz,reverse$
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime tools import \
+  --type 'SampleData[PairedEndSequencesWithQuality]' \
+  --input-path manifest.csv \
+  --output-path reads_qza/reads.qza \
+  --input-format PairedEndFastqManifestPhred33V2
+There was a problem importing manifest.csv:
+
+  manifest.csv is not a(n) PairedEndFastqManifestPhred33V2 file:
+
+  Found unrecognized ID column name 'sample-id,absolute-filepath,direction' while searching for header. The first column name in the header defines the ID column, and must be one of these values:
+
+  Case-insensitive: 'feature id', 'feature-id', 'featureid', 'id', 'sample id', 'sample-id', 'sampleid'
+
+  Case-sensitive: '#OTU ID', '#OTUID', '#Sample ID', '#SampleID', 'sample_name'
+
+  NOTE: Metadata files must contain tab-separated values.
+
+  There may be more errors present in the metadata file. To get a full report, sample/feature metadata files can be validated with Keemei: https://keemei.qiime2.org
+
+  Find details on QIIME 2 metadata requirements here: https://docs.qiime2.org/2023.9/tutorials/metadata/
+
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# cd /data
+rm -f manifest.csv
+
+printf "sample-id,absolute-filepath,direction\n" > manifest.csv
+printf "SRR16600068,/data/raw_data/SRR16600068_1.fastq.gz,forward\n" >> manifest.csv
+printf "SRR16600068,/data/raw_data/SRR16600068_2.fastq.gz,reverse\n" >> manifest.csv
+printf "SRR16600076,/data/raw_data/SRR16600076_1.fastq.gz,forward\n" >> manifest.csv
+printf "SRR16600076,/data/raw_data/SRR16600076_2.fastq.gz,reverse\n" >> manifest.csv
+printf "SRR16600077,/data/raw_data/SRR16600077_1.fastq.gz,forward\n" >> manifest.csv
+printf "SRR16600077,/data/raw_data/SRR16600077_2.fastq.gz,reverse\n" >> manifest.csv
+printf "SRR16600081,/data/raw_data/SRR16600081_1.fastq.gz,forward\n" >> manifest.csv
+printf "SRR16600081,/data/raw_data/SRR16600081_2.fastq.gz,reverse\n" >> manifest.csv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# cat manifest.csv
+sample-id,absolute-filepath,direction
+SRR16600068,/data/raw_data/SRR16600068_1.fastq.gz,forward
+SRR16600068,/data/raw_data/SRR16600068_2.fastq.gz,reverse
+SRR16600076,/data/raw_data/SRR16600076_1.fastq.gz,forward
+SRR16600076,/data/raw_data/SRR16600076_2.fastq.gz,reverse
+SRR16600077,/data/raw_data/SRR16600077_1.fastq.gz,forward
+SRR16600077,/data/raw_data/SRR16600077_2.fastq.gz,reverse
+SRR16600081,/data/raw_data/SRR16600081_1.fastq.gz,forward
+SRR16600081,/data/raw_data/SRR16600081_2.fastq.gz,reverse
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime tools import \
+  --type 'SampleData[PairedEndSequencesWithQuality]' \
+  --input-path manifest.csv \
+  --output-path reads_qza/reads.qza \
+  --input-format PairedEndFastqManifestPhred33V2
+There was a problem importing manifest.csv:
+
+  manifest.csv is not a(n) PairedEndFastqManifestPhred33V2 file:
+
+  Found unrecognized ID column name 'sample-id,absolute-filepath,direction' while searching for header. The first column name in the header defines the ID column, and must be one of these values:
+
+  Case-insensitive: 'feature id', 'feature-id', 'featureid', 'id', 'sample id', 'sample-id', 'sampleid'
+
+  Case-sensitive: '#OTU ID', '#OTUID', '#Sample ID', '#SampleID', 'sample_name'
+
+  NOTE: Metadata files must contain tab-separated values.
+
+  There may be more errors present in the metadata file. To get a full report, sample/feature metadata files can be validated with Keemei: https://keemei.qiime2.org
+
+  Find details on QIIME 2 metadata requirements here: https://docs.qiime2.org/2023.9/tutorials/metadata/
+
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# cd /data
+rm -f manifest.csv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# printf "sampleid,absolute-filepath,direction\n" > manifest.csv
+printf "SRR16600068,/data/raw_data/SRR16600068_1.fastq.gz,forward\n" >> manifest.csv
+printf "SRR16600068,/data/raw_data/SRR16600068_2.fastq.gz,reverse\n" >> manifest.csv
+printf "SRR16600076,/data/raw_data/SRR16600076_1.fastq.gz,forward\n" >> manifest.csv
+printf "SRR16600076,/data/raw_data/SRR16600076_2.fastq.gz,reverse\n" >> manifest.csv
+printf "SRR16600077,/data/raw_data/SRR16600077_1.fastq.gz,forward\n" >> manifest.csv
+printf "SRR16600077,/data/raw_data/SRR16600077_2.fastq.gz,reverse\n" >> manifest.csv
+printf "SRR16600081,/data/raw_data/SRR16600081_1.fastq.gz,forward\n" >> manifest.csv
+printf "SRR16600081,/data/raw_data/SRR16600081_2.fastq.gz,reverse\n" >> manifest.csv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# cat manifest.csv
+sampleid,absolute-filepath,direction
+SRR16600068,/data/raw_data/SRR16600068_1.fastq.gz,forward
+SRR16600068,/data/raw_data/SRR16600068_2.fastq.gz,reverse
+SRR16600076,/data/raw_data/SRR16600076_1.fastq.gz,forward
+SRR16600076,/data/raw_data/SRR16600076_2.fastq.gz,reverse
+SRR16600077,/data/raw_data/SRR16600077_1.fastq.gz,forward
+SRR16600077,/data/raw_data/SRR16600077_2.fastq.gz,reverse
+SRR16600081,/data/raw_data/SRR16600081_1.fastq.gz,forward
+SRR16600081,/data/raw_data/SRR16600081_2.fastq.gz,reverse
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime tools import \
+  --type 'SampleData[PairedEndSequencesWithQuality]' \
+  --input-path manifest.csv \
+  --output-path reads_qza/reads.qza \
+  --input-format PairedEndFastqManifestPhred33V2
+There was a problem importing manifest.csv:
+
+  manifest.csv is not a(n) PairedEndFastqManifestPhred33V2 file:
+
+  Found unrecognized ID column name 'sampleid,absolute-filepath,direction' while searching for header. The first column name in the header defines the ID column, and must be one of these values:
+
+  Case-insensitive: 'feature id', 'feature-id', 'featureid', 'id', 'sample id', 'sample-id', 'sampleid'
+
+  Case-sensitive: '#OTU ID', '#OTUID', '#Sample ID', '#SampleID', 'sample_name'
+
+  NOTE: Metadata files must contain tab-separated values.
+
+  There may be more errors present in the metadata file. To get a full report, sample/feature metadata files can be validated with Keemei: https://keemei.qiime2.org
+
+  Find details on QIIME 2 metadata requirements here: https://docs.qiime2.org/2023.9/tutorials/metadata/
+
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# cd /data
+rm -f manifest.csv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# cat > manifest.csv <<EOF
+sampleid,absolute-filepath,direction
+SRR16600068,/data/raw_data/SRR16600068_1.fastq.gz,forward
+SRR16600068,/data/raw_data/SRR16600068_2.fastq.gz,reverse
+SRR16600076,/data/raw_data/SRR16600076_1.fastq.gz,forward
+SRR16600076,/data/raw_data/SRR16600076_2.fastq.gz,reverse
+SRR16600077,/data/raw_data/SRR16600077_1.fastq.gz,forward
+SRR16600077,/data/raw_data/SRR16600077_2.fastq.gz,reverse
+SRR16600081,/data/raw_data/SRR16600081_1.fastq.gz,forward
+SRR16600081,/data/raw_data/SRR16600081_2.fastq.gz,reverse
+EOF
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# cat -A manifest.csv
+sampleid,absolute-filepath,direction$
+SRR16600068,/data/raw_data/SRR16600068_1.fastq.gz,forward$
+SRR16600068,/data/raw_data/SRR16600068_2.fastq.gz,reverse$
+SRR16600076,/data/raw_data/SRR16600076_1.fastq.gz,forward$
+SRR16600076,/data/raw_data/SRR16600076_2.fastq.gz,reverse$
+SRR16600077,/data/raw_data/SRR16600077_1.fastq.gz,forward$
+SRR16600077,/data/raw_data/SRR16600077_2.fastq.gz,reverse$
+SRR16600081,/data/raw_data/SRR16600081_1.fastq.gz,forward$
+SRR16600081,/data/raw_data/SRR16600081_2.fastq.gz,reverse$
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime tools import \
+  --type 'SampleData[PairedEndSequencesWithQuality]' \
+  --input-path manifest.csv \
+  --output-path reads_qza/reads.qza \
+  --input-format PairedEndFastqManifestPhred33V2
+There was a problem importing manifest.csv:
+
+  manifest.csv is not a(n) PairedEndFastqManifestPhred33V2 file:
+
+  Found unrecognized ID column name 'sampleid,absolute-filepath,direction' while searching for header. The first column name in the header defines the ID column, and must be one of these values:
+
+  Case-insensitive: 'feature id', 'feature-id', 'featureid', 'id', 'sample id', 'sample-id', 'sampleid'
+
+  Case-sensitive: '#OTU ID', '#OTUID', '#Sample ID', '#SampleID', 'sample_name'
+
+  NOTE: Metadata files must contain tab-separated values.
+
+  There may be more errors present in the metadata file. To get a full report, sample/feature metadata files can be validated with Keemei: https://keemei.qiime2.org
+
+  Find details on QIIME 2 metadata requirements here: https://docs.qiime2.org/2023.9/tutorials/metadata/
+
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# file manifest.csv
+od -c manifest.csv | head -n 5
+bash: file: command not found
+0000000   s   a   m   p   l   e   i   d   ,   a   b   s   o   l   u   t
+0000020   e   -   f   i   l   e   p   a   t   h   ,   d   i   r   e   c
+0000040   t   i   o   n  \n   S   R   R   1   6   6   0   0   0   6   8
+0000060   ,   /   d   a   t   a   /   r   a   w   _   d   a   t   a   /
+0000100   S   R   R   1   6   6   0   0   0   6   8   _   1   .   f   a
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime tools import \
+  --type 'SampleData[PairedEndSequencesWithQuality]' \
+  --input-path manifest.csv \
+  --output-path reads_qza/reads.qza \
+  --input-format PairedEndFastqManifestPhred33
+There was a problem importing manifest.csv:
+
+  manifest.csv is not a(n) PairedEndFastqManifestPhred33 file:
+
+  Found header on line 1 with the following labels: ['sampleid', 'absolute-filepath', 'direction'], expected: ['sample-id', 'absolute-filepath', 'direction']
+
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# sed -i '1s/^sampleid/sample-id/' manifest.csv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# head -n 1 manifest.csv
+sample-id,absolute-filepath,direction
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime tools import \
+  --type 'SampleData[PairedEndSequencesWithQuality]' \
+  --input-path manifest.csv \
+  --output-path reads_qza/reads.qza \
+  --input-format PairedEndFastqManifestPhred33
+Imported manifest.csv as PairedEndFastqManifestPhred33 to reads_qza/reads.qza
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime demux summarize \
+  --i-data reads_qza/reads.qza \
+  --o-visualization reads_qza/reads_summary.qzv
+Saved Visualization to: reads_qza/reads_summary.qzv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# ls -lah reads_qza/
+total 322M
+drwxr-xr-x 4 root root  128 Feb 13 16:35 .
+drwxr-xr-x 7 root root  224 Feb 13 16:34 ..
+-rw-r--r-- 1 root root 320M Feb 13 16:34 reads.qza
+-rw-r--r-- 1 root root 316K Feb 13 16:35 reads_summary.qzv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime demux summarize \
+  --i-data reads_qza/reads.qza \
+  --o-visualization reads_qza/reads_summary.qzv
+Saved Visualization to: reads_qza/reads_summary.qzv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# oral_microbiome/reads_qza/reads_summary.qzv
+bash: oral_microbiome/reads_qza/reads_summary.qzv: No such file or directory
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# ls -lah reads_qza/
+total 322M
+drwxr-xr-x 4 root root  128 Feb 13 16:35 .
+drwxr-xr-x 7 root root  224 Feb 13 16:34 ..
+-rw-r--r-- 1 root root 320M Feb 13 16:34 reads.qza
+-rw-r--r-- 1 root root 316K Feb 13 16:36 reads_summary.qzv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# oral_microbiome/reads_qza/reads_summary.qzv
+bash: oral_microbiome/reads_qza/reads_summary.qzv: No such file or directory
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# /data
+bash: /data: Is a directory
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# /data
+bash: /data: Is a directory
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# ls -lah /data/reads_qza/reads_summary.qzv
+-rw-r--r-- 1 root root 316K Feb 13 16:36 /data/reads_qza/reads_summary.qzv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# pwd
+/data
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# ls -lah /data/reads_qza/
+total 322M
+drwxr-xr-x 4 root root  128 Feb 13 16:35 .
+drwxr-xr-x 7 root root  224 Feb 13 16:34 ..
+-rw-r--r-- 1 root root 320M Feb 13 16:34 reads.qza
+-rw-r--r-- 1 root root 316K Feb 13 16:36 reads_summary.qzv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime cutadapt trim-paired \
+  --i-demultiplexed-sequences reads_qza/reads.qza \
+  --p-front-f ACGCGHNRAACCTTACC \
+  --p-front-r ACGGGCRGTGWGTRCAA \
+  --p-discard-untrimmed \
+  --p-no-indels \
+  --p-cores 4 \
+  --o-trimmed-sequences reads_qza/reads_trimmed.qza
+Saved SampleData[PairedEndSequencesWithQuality] to: reads_qza/reads_trimmed.qza
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime demux summarize \
+  --i-data reads_qza/reads_trimmed.qza \
+  --o-visualization reads_qza/reads_trimmed_summary.qzv
+Saved Visualization to: reads_qza/reads_trimmed_summary.qzv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime cutadapt trim-paired \
+  --i-demultiplexed-sequences reads_qza/reads.qza \
+  --p-front-f ACGCGHNRAACCTTACC \
+  --p-front-r ACGGGCRGTGWGTRCAA \
+  --p-discard-untrimmed \
+  --p-no-indels \
+  --p-cores 4 \
+  --o-trimmed-sequences reads_qza/reads_trimmed.qza
+Saved SampleData[PairedEndSequencesWithQuality] to: reads_qza/reads_trimmed.qza
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime demux summarize \
+  --i-data reads_qza/reads_trimmed.qza \
+  --o-visualization reads_qza/reads_trimmed_summary.qzv
+Saved Visualization to: reads_qza/reads_trimmed_summary.qzv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime dada2 denoise-paired \
+  --i-demultiplexed-seqs reads_qza/reads_trimmed.qza \
+  --p-trunc-len-f 270 \
+  --p-trunc-len-r 210 \
+  --p-max-ee-f 2 \
+  --p-max-ee-r 3 \
+  --p-n-threads 4 \
+  --output-dir dada2_output
+Saved FeatureTable[Frequency] to: dada2_output/table.qza
+Saved FeatureData[Sequence] to: dada2_output/representative_sequences.qza
+Saved SampleData[DADA2Stats] to: dada2_output/denoising_stats.qza
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime feature-table summarize \
+  --i-table dada2_output/table.qza \
+  --o-visualization dada2_output/dada2_table_summary.qzv
+Saved Visualization to: dada2_output/dada2_table_summary.qzv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime tools export \
+  --input-path dada2_output/denoising_stats.qza \
+  --output-path dada2_output
+Exported dada2_output/denoising_stats.qza as DADA2StatsDirFmt to directory dada2_output
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime metadata tabulate \
+  --m-input-file dada2_output/denoising_stats.qza \
+  --o-visualization dada2_output/denoising_stats.qzv
+Saved Visualization to: dada2_output/denoising_stats.qzv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime feature-table summarize \
+  --i-table dada2_output/table.qza \
+  --o-visualization dada2_output/table_summary.qzv \
+  --m-sample-metadata-file raw_data/metadata4.tsv
+There was an issue with loading the file raw_data/metadata4.tsv as metadata:
+
+  Found unrecognized ID column name 'run_accession' while searching for header. The first column name in the header defines the ID column, and must be one of these values:
+
+  Case-insensitive: 'feature id', 'feature-id', 'featureid', 'id', 'sample id', 'sample-id', 'sampleid'
+
+  Case-sensitive: '#OTU ID', '#OTUID', '#Sample ID', '#SampleID', 'sample_name'
+
+  NOTE: Metadata files must contain tab-separated values.
+
+  There may be more errors present in the metadata file. To get a full report, sample/feature metadata files can be validated with Keemei: https://keemei.qiime2.org
+
+  Find details on QIIME 2 metadata requirements here: https://docs.qiime2.org/2023.9/tutorials/metadata/
+
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# head raw_data/metadata4.tsv
+run_accession	Status	scientific_name
+SRR16600068	Periodontitis	human oral metagenome
+SRR16600076	Periodontitis	human oral metagenome
+SRR16600077	Healthy	human oral metagenome
+SRR16600081	Healthy	human oral metagenome
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# awk 'BEGIN{FS=OFS="\t"}
+NR==1{$1="sample-id"} {print}' raw_data/metadata4.tsv > metadata_qiime.tsv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# head metadata_qiime.tsv
+sample-id	Status	scientific_name
+SRR16600068	Periodontitis	human oral metagenome
+SRR16600076	Periodontitis	human oral metagenome
+SRR16600077	Healthy	human oral metagenome
+SRR16600081	Healthy	human oral metagenome
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# sample-id
+bash: sample-id: command not found
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime feature-table summarize \
+  --i-table dada2_output/table.qza \
+  --o-visualization dada2_output/table_summary.qzv \
+  --m-sample-metadata-file metadata_qiime.tsv
+Saved Visualization to: dada2_output/table_summary.qzv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime feature-table tabulate-seqs \
+  --i-data dada2_output/representative_sequences.qza \
+  --o-visualization dada2_output/rep_seqs.qzv
+Saved Visualization to: dada2_output/rep_seqs.qzv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime feature-table tabulate-seqs \
+  --i-data dada2_output/representative_sequences.qza \
+  --o-visualization dada2_output/rep_seqs.qzv
+Saved Visualization to: dada2_output/rep_seqs.qzv
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# mkdir -p taxa
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime feature-classifier classify-sklearn \
+  --i-classifier silva_classifier.qza \
+  --i-reads dada2_output/representative_sequences.qza \
+  --o-classification taxa/classification.qza
+Usage: qiime feature-classifier classify-sklearn [OPTIONS]
+
+  Classify reads by taxon using a fitted classifier.
+
+Inputs:
+  --i-reads ARTIFACT FeatureData[Sequence]
+                         The feature data to be classified.         [required]
+  --i-classifier ARTIFACT
+    TaxonomicClassifier  The taxonomic classifier for classifying the reads.
+                                                                    [required]
+Parameters:
+  --p-reads-per-batch VALUE Int % Range(1, None) | Str % Choices('auto')
+                         Number of reads to process in each batch. If "auto",
+                         this parameter is autoscaled to min( number of query
+                         sequences / n-jobs, 20000).         [default: 'auto']
+  --p-n-jobs INTEGER     The maximum number of concurrently worker processes.
+                         If -1 all CPUs are used. If 1 is given, no parallel
+                         computing code is used at all, which is useful for
+                         debugging. For n-jobs below -1, (n_cpus + 1 + n-jobs)
+                         are used. Thus for n-jobs = -2, all CPUs but one are
+                         used.                                    [default: 1]
+  --p-pre-dispatch TEXT  "all" or expression, as in "3*n_jobs". The number of
+                         batches (of tasks) to be pre-dispatched.
+                                                         [default: '2*n_jobs']
+  --p-confidence VALUE Float % Range(0, 1, inclusive_end=True) | Str %
+    Choices('disable')   Confidence threshold for limiting taxonomic depth.
+                         Set to "disable" to disable confidence calculation,
+                         or 0 to calculate confidence but not apply it to
+                         limit the taxonomic depth of the assignments.
+                                                                [default: 0.7]
+  --p-read-orientation TEXT Choices('same', 'reverse-complement', 'auto')
+                         Direction of reads with respect to reference
+                         sequences. same will cause reads to be classified
+                         unchanged; reverse-complement will cause reads to be
+                         reversed and complemented prior to classification.
+                         "auto" will autodetect orientation based on the
+                         confidence estimates for the first 100 reads.
+                                                             [default: 'auto']
+Outputs:
+  --o-classification ARTIFACT FeatureData[Taxonomy]
+                                                                    [required]
+Miscellaneous:
+  --output-dir PATH      Output unspecified results to a directory
+  --verbose / --quiet    Display verbose output to stdout and/or stderr
+                         during execution of this action. Or silence output if
+                         execution is successful (silence is golden).
+  --example-data PATH    Write example data and exit.
+  --citations            Show citations and exit.
+  --help                 Show this message and exit.
+
+                    There was a problem with the command:                     
+ (1/1) Invalid value for '--i-classifier': silva_classifier.qza does not
+  exist.
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# ls -lah *.qza
+ls -lah taxa
+ls -lah
+ls: cannot access '*.qza': No such file or directory
+total 0
+drwxr-xr-x  2 root root  64 Feb 13 16:48 .
+drwxr-xr-x 10 root root 320 Feb 13 16:48 ..
+total 40K
+drwxr-xr-x 10 root root  320 Feb 13 16:48 .
+drwxr-xr-x  1 root root 4.0K Feb 13 16:20 ..
+-rw-r--r--  1 root root 8.1K Feb 13 15:58 .DS_Store
+drwxr-xr-x 10 root root  320 Feb 13 16:47 dada2_output
+-rw-r--r--  1 root root  502 Feb 13 16:34 manifest.csv
+-rw-r--r--  1 root root  213 Feb 13 16:46 metadata_qiime.tsv
+-rw-r--r--  1 root root  13K Feb 13 16:09 qiime2-amplicon-2023.9-py38-osx-conda.yml
+drwxr-xr-x 15 root root  480 Feb 13 14:47 raw_data
+drwxr-xr-x  6 root root  192 Feb 13 16:41 reads_qza
+drwxr-xr-x  2 root root   64 Feb 13 16:48 taxa
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# wget --help
+GNU Wget 1.20.3, a non-interactive network retriever.
+Usage: wget [OPTION]... [URL]...
+
+Mandatory arguments to long options are mandatory for short options too.
+
+Startup:
+  -V,  --version                   display the version of Wget and exit
+  -h,  --help                      print this help
+  -b,  --background                go to background after startup
+  -e,  --execute=COMMAND           execute a `.wgetrc'-style command
+
+Logging and input file:
+  -o,  --output-file=FILE          log messages to FILE
+  -a,  --append-output=FILE        append messages to FILE
+  -d,  --debug                     print lots of debugging information
+  -q,  --quiet                     quiet (no output)
+  -v,  --verbose                   be verbose (this is the default)
+  -nv, --no-verbose                turn off verboseness, without being quiet
+       --report-speed=TYPE         output bandwidth as TYPE.  TYPE can be bits
+  -i,  --input-file=FILE           download URLs found in local or external FILE
+  -F,  --force-html                treat input file as HTML
+  -B,  --base=URL                  resolves HTML input-file links (-i -F)
+                                     relative to URL
+       --config=FILE               specify config file to use
+       --no-config                 do not read any config file
+       --rejected-log=FILE         log reasons for URL rejection to FILE
+
+Download:
+  -t,  --tries=NUMBER              set number of retries to NUMBER (0 unlimits)
+       --retry-connrefused         retry even if connection is refused
+       --retry-on-http-error=ERRORS    comma-separated list of HTTP errors to retry
+  -O,  --output-document=FILE      write documents to FILE
+  -nc, --no-clobber                skip downloads that would download to
+                                     existing files (overwriting them)
+       --no-netrc                  don't try to obtain credentials from .netrc
+  -c,  --continue                  resume getting a partially-downloaded file
+       --start-pos=OFFSET          start downloading from zero-based position OFFSET
+       --progress=TYPE             select progress gauge type
+       --show-progress             display the progress bar in any verbosity mode
+  -N,  --timestamping              don't re-retrieve files unless newer than
+                                     local
+       --no-if-modified-since      don't use conditional if-modified-since get
+                                     requests in timestamping mode
+       --no-use-server-timestamps  don't set the local file's timestamp by
+                                     the one on the server
+  -S,  --server-response           print server response
+       --spider                    don't download anything
+  -T,  --timeout=SECONDS           set all timeout values to SECONDS
+       --dns-timeout=SECS          set the DNS lookup timeout to SECS
+       --connect-timeout=SECS      set the connect timeout to SECS
+       --read-timeout=SECS         set the read timeout to SECS
+  -w,  --wait=SECONDS              wait SECONDS between retrievals
+       --waitretry=SECONDS         wait 1..SECONDS between retries of a retrieval
+       --random-wait               wait from 0.5*WAIT...1.5*WAIT secs between retrievals
+       --no-proxy                  explicitly turn off proxy
+  -Q,  --quota=NUMBER              set retrieval quota to NUMBER
+       --bind-address=ADDRESS      bind to ADDRESS (hostname or IP) on local host
+       --limit-rate=RATE           limit download rate to RATE
+       --no-dns-cache              disable caching DNS lookups
+       --restrict-file-names=OS    restrict chars in file names to ones OS allows
+       --ignore-case               ignore case when matching files/directories
+  -4,  --inet4-only                connect only to IPv4 addresses
+  -6,  --inet6-only                connect only to IPv6 addresses
+       --prefer-family=FAMILY      connect first to addresses of specified family,
+                                     one of IPv6, IPv4, or none
+       --user=USER                 set both ftp and http user to USER
+       --password=PASS             set both ftp and http password to PASS
+       --ask-password              prompt for passwords
+       --use-askpass=COMMAND       specify credential handler for requesting 
+                                     username and password.  If no COMMAND is 
+                                     specified the WGET_ASKPASS or the SSH_ASKPASS 
+                                     environment variable is used.
+       --no-iri                    turn off IRI support
+       --local-encoding=ENC        use ENC as the local encoding for IRIs
+       --remote-encoding=ENC       use ENC as the default remote encoding
+       --unlink                    remove file before clobber
+       --xattr                     turn on storage of metadata in extended file attributes
+
+Directories:
+  -nd, --no-directories            don't create directories
+  -x,  --force-directories         force creation of directories
+  -nH, --no-host-directories       don't create host directories
+       --protocol-directories      use protocol name in directories
+  -P,  --directory-prefix=PREFIX   save files to PREFIX/..
+       --cut-dirs=NUMBER           ignore NUMBER remote directory components
+
+HTTP options:
+       --http-user=USER            set http user to USER
+       --http-password=PASS        set http password to PASS
+       --no-cache                  disallow server-cached data
+       --default-page=NAME         change the default page name (normally
+                                     this is 'index.html'.)
+  -E,  --adjust-extension          save HTML/CSS documents with proper extensions
+       --ignore-length             ignore 'Content-Length' header field
+       --header=STRING             insert STRING among the headers
+       --compression=TYPE          choose compression, one of auto, gzip and none. (default: none)
+       --max-redirect              maximum redirections allowed per page
+       --proxy-user=USER           set USER as proxy username
+       --proxy-password=PASS       set PASS as proxy password
+       --referer=URL               include 'Referer: URL' header in HTTP request
+       --save-headers              save the HTTP headers to file
+  -U,  --user-agent=AGENT          identify as AGENT instead of Wget/VERSION
+       --no-http-keep-alive        disable HTTP keep-alive (persistent connections)
+       --no-cookies                don't use cookies
+       --load-cookies=FILE         load cookies from FILE before session
+       --save-cookies=FILE         save cookies to FILE after session
+       --keep-session-cookies      load and save session (non-permanent) cookies
+       --post-data=STRING          use the POST method; send STRING as the data
+       --post-file=FILE            use the POST method; send contents of FILE
+       --method=HTTPMethod         use method "HTTPMethod" in the request
+       --body-data=STRING          send STRING as data. --method MUST be set
+       --body-file=FILE            send contents of FILE. --method MUST be set
+       --content-disposition       honor the Content-Disposition header when
+                                     choosing local file names (EXPERIMENTAL)
+       --content-on-error          output the received content on server errors
+       --auth-no-challenge         send Basic HTTP authentication information
+                                     without first waiting for the server's
+                                     challenge
+
+HTTPS (SSL/TLS) options:
+       --secure-protocol=PR        choose secure protocol, one of auto, SSLv2,
+                                     SSLv3, TLSv1, TLSv1_1, TLSv1_2 and PFS
+       --https-only                only follow secure HTTPS links
+       --no-check-certificate      don't validate the server's certificate
+       --certificate=FILE          client certificate file
+       --certificate-type=TYPE     client certificate type, PEM or DER
+       --private-key=FILE          private key file
+       --private-key-type=TYPE     private key type, PEM or DER
+       --ca-certificate=FILE       file with the bundle of CAs
+       --ca-directory=DIR          directory where hash list of CAs is stored
+       --crl-file=FILE             file with bundle of CRLs
+       --pinnedpubkey=FILE/HASHES  Public key (PEM/DER) file, or any number
+                                   of base64 encoded sha256 hashes preceded by
+                                   'sha256//' and separated by ';', to verify
+                                   peer against
+       --random-file=FILE          file with random data for seeding the SSL PRNG
+
+       --ciphers=STR           Set the priority string (GnuTLS) or cipher list string (OpenSSL) directly.
+                                   Use with care. This option overrides --secure-protocol.
+                                   The format and syntax of this string depend on the specific SSL/TLS engine.
+HSTS options:
+       --no-hsts                   disable HSTS
+       --hsts-file                 path of HSTS database (will override default)
+
+FTP options:
+       --ftp-user=USER             set ftp user to USER
+       --ftp-password=PASS         set ftp password to PASS
+       --no-remove-listing         don't remove '.listing' files
+       --no-glob                   turn off FTP file name globbing
+       --no-passive-ftp            disable the "passive" transfer mode
+       --preserve-permissions      preserve remote file permissions
+       --retr-symlinks             when recursing, get linked-to files (not dir)
+
+FTPS options:
+       --ftps-implicit                 use implicit FTPS (default port is 990)
+       --ftps-resume-ssl               resume the SSL/TLS session started in the control connection when
+                                         opening a data connection
+       --ftps-clear-data-connection    cipher the control channel only; all the data will be in plaintext
+       --ftps-fallback-to-ftp          fall back to FTP if FTPS is not supported in the target server
+WARC options:
+       --warc-file=FILENAME        save request/response data to a .warc.gz file
+       --warc-header=STRING        insert STRING into the warcinfo record
+       --warc-max-size=NUMBER      set maximum size of WARC files to NUMBER
+       --warc-cdx                  write CDX index files
+       --warc-dedup=FILENAME       do not store records listed in this CDX file
+       --no-warc-compression       do not compress WARC files with GZIP
+       --no-warc-digests           do not calculate SHA1 digests
+       --no-warc-keep-log          do not store the log file in a WARC record
+       --warc-tempdir=DIRECTORY    location for temporary files created by the
+                                     WARC writer
+
+Recursive download:
+  -r,  --recursive                 specify recursive download
+  -l,  --level=NUMBER              maximum recursion depth (inf or 0 for infinite)
+       --delete-after              delete files locally after downloading them
+  -k,  --convert-links             make links in downloaded HTML or CSS point to
+                                     local files
+       --convert-file-only         convert the file part of the URLs only (usually known as the basename)
+       --backups=N                 before writing file X, rotate up to N backup files
+  -K,  --backup-converted          before converting file X, back up as X.orig
+  -m,  --mirror                    shortcut for -N -r -l inf --no-remove-listing
+  -p,  --page-requisites           get all images, etc. needed to display HTML page
+       --strict-comments           turn on strict (SGML) handling of HTML comments
+
+Recursive accept/reject:
+  -A,  --accept=LIST               comma-separated list of accepted extensions
+  -R,  --reject=LIST               comma-separated list of rejected extensions
+       --accept-regex=REGEX        regex matching accepted URLs
+       --reject-regex=REGEX        regex matching rejected URLs
+       --regex-type=TYPE           regex type (posix)
+  -D,  --domains=LIST              comma-separated list of accepted domains
+       --exclude-domains=LIST      comma-separated list of rejected domains
+       --follow-ftp                follow FTP links from HTML documents
+       --follow-tags=LIST          comma-separated list of followed HTML tags
+       --ignore-tags=LIST          comma-separated list of ignored HTML tags
+  -H,  --span-hosts                go to foreign hosts when recursive
+  -L,  --relative                  follow relative links only
+  -I,  --include-directories=LIST  list of allowed directories
+       --trust-server-names        use the name specified by the redirection
+                                     URL's last component
+  -X,  --exclude-directories=LIST  list of excluded directories
+  -np, --no-parent                 don't ascend to the parent directory
+
+Email bug reports, questions, discussions to <bug-wget@gnu.org>
+and/or open issues at https://savannah.gnu.org/bugs/?func=additem&group=wget.
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime feature-classifier classify-sklearn \
+  --i-classifier silva-138-99-nb-classifier.qza \
+  --i-reads dada2_output/representative_sequences.qza \
+  --o-classification taxa/classification.qza
+Usage: qiime feature-classifier classify-sklearn [OPTIONS]
+
+  Classify reads by taxon using a fitted classifier.
+
+Inputs:
+  --i-reads ARTIFACT FeatureData[Sequence]
+                         The feature data to be classified.         [required]
+  --i-classifier ARTIFACT
+    TaxonomicClassifier  The taxonomic classifier for classifying the reads.
+                                                                    [required]
+Parameters:
+  --p-reads-per-batch VALUE Int % Range(1, None) | Str % Choices('auto')
+                         Number of reads to process in each batch. If "auto",
+                         this parameter is autoscaled to min( number of query
+                         sequences / n-jobs, 20000).         [default: 'auto']
+  --p-n-jobs INTEGER     The maximum number of concurrently worker processes.
+                         If -1 all CPUs are used. If 1 is given, no parallel
+                         computing code is used at all, which is useful for
+                         debugging. For n-jobs below -1, (n_cpus + 1 + n-jobs)
+                         are used. Thus for n-jobs = -2, all CPUs but one are
+                         used.                                    [default: 1]
+  --p-pre-dispatch TEXT  "all" or expression, as in "3*n_jobs". The number of
+                         batches (of tasks) to be pre-dispatched.
+                                                         [default: '2*n_jobs']
+  --p-confidence VALUE Float % Range(0, 1, inclusive_end=True) | Str %
+    Choices('disable')   Confidence threshold for limiting taxonomic depth.
+                         Set to "disable" to disable confidence calculation,
+                         or 0 to calculate confidence but not apply it to
+                         limit the taxonomic depth of the assignments.
+                                                                [default: 0.7]
+  --p-read-orientation TEXT Choices('same', 'reverse-complement', 'auto')
+                         Direction of reads with respect to reference
+                         sequences. same will cause reads to be classified
+                         unchanged; reverse-complement will cause reads to be
+                         reversed and complemented prior to classification.
+                         "auto" will autodetect orientation based on the
+                         confidence estimates for the first 100 reads.
+                                                             [default: 'auto']
+Outputs:
+  --o-classification ARTIFACT FeatureData[Taxonomy]
+                                                                    [required]
+Miscellaneous:
+  --output-dir PATH      Output unspecified results to a directory
+  --verbose / --quiet    Display verbose output to stdout and/or stderr
+                         during execution of this action. Or silence output if
+                         execution is successful (silence is golden).
+  --example-data PATH    Write example data and exit.
+  --citations            Show citations and exit.
+  --help                 Show this message and exit.
+
+                    There was a problem with the command:                     
+ (1/1) Invalid value for '--i-classifier': silva-138-99-nb-classifier.qza does
+  not exist.
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# ls -lah /data
+total 40K
+drwxr-xr-x 10 root root  320 Feb 13 16:48 .
+drwxr-xr-x  1 root root 4.0K Feb 13 16:20 ..
+-rw-r--r--  1 root root 8.1K Feb 13 15:58 .DS_Store
+drwxr-xr-x 10 root root  320 Feb 13 16:47 dada2_output
+-rw-r--r--  1 root root  502 Feb 13 16:34 manifest.csv
+-rw-r--r--  1 root root  213 Feb 13 16:46 metadata_qiime.tsv
+-rw-r--r--  1 root root  13K Feb 13 16:09 qiime2-amplicon-2023.9-py38-osx-conda.yml
+drwxr-xr-x 15 root root  480 Feb 13 14:47 raw_data
+drwxr-xr-x  6 root root  192 Feb 13 16:41 reads_qza
+drwxr-xr-x  2 root root   64 Feb 13 16:48 taxa
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# ls -lah /data/*.qza
+ls: cannot access '/data/*.qza': No such file or directory
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# /Users/brindha/Documents/R- microbiome analysis/16s/oral_microbiome/
+bash: /Users/brindha/Documents/R-: No such file or directory
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# qiime feature-classifier classify-sklearn \
+  --i-classifier silva_classifier.qza \
+  --i-reads dada2_output/representative_sequences.qza \
+  --o-classification taxa/classification.qza
+Usage: qiime feature-classifier classify-sklearn [OPTIONS]
+
+  Classify reads by taxon using a fitted classifier.
+
+Inputs:
+  --i-reads ARTIFACT FeatureData[Sequence]
+                         The feature data to be classified.         [required]
+  --i-classifier ARTIFACT
+    TaxonomicClassifier  The taxonomic classifier for classifying the reads.
+                                                                    [required]
+Parameters:
+  --p-reads-per-batch VALUE Int % Range(1, None) | Str % Choices('auto')
+                         Number of reads to process in each batch. If "auto",
+                         this parameter is autoscaled to min( number of query
+                         sequences / n-jobs, 20000).         [default: 'auto']
+  --p-n-jobs INTEGER     The maximum number of concurrently worker processes.
+                         If -1 all CPUs are used. If 1 is given, no parallel
+                         computing code is used at all, which is useful for
+                         debugging. For n-jobs below -1, (n_cpus + 1 + n-jobs)
+                         are used. Thus for n-jobs = -2, all CPUs but one are
+                         used.                                    [default: 1]
+  --p-pre-dispatch TEXT  "all" or expression, as in "3*n_jobs". The number of
+                         batches (of tasks) to be pre-dispatched.
+                                                         [default: '2*n_jobs']
+  --p-confidence VALUE Float % Range(0, 1, inclusive_end=True) | Str %
+    Choices('disable')   Confidence threshold for limiting taxonomic depth.
+                         Set to "disable" to disable confidence calculation,
+                         or 0 to calculate confidence but not apply it to
+                         limit the taxonomic depth of the assignments.
+                                                                [default: 0.7]
+  --p-read-orientation TEXT Choices('same', 'reverse-complement', 'auto')
+                         Direction of reads with respect to reference
+                         sequences. same will cause reads to be classified
+                         unchanged; reverse-complement will cause reads to be
+                         reversed and complemented prior to classification.
+                         "auto" will autodetect orientation based on the
+                         confidence estimates for the first 100 reads.
+                                                             [default: 'auto']
+Outputs:
+  --o-classification ARTIFACT FeatureData[Taxonomy]
+                                                                    [required]
+Miscellaneous:
+  --output-dir PATH      Output unspecified results to a directory
+  --verbose / --quiet    Display verbose output to stdout and/or stderr
+                         during execution of this action. Or silence output if
+                         execution is successful (silence is golden).
+  --example-data PATH    Write example data and exit.
+  --citations            Show citations and exit.
+  --help                 Show this message and exit.
+
+                    There was a problem with the command:                     
+ (1/1) Invalid value for '--i-classifier': silva_classifier.qza does not
+  exist.
+(qiime2-amplicon-2023.9) root@13384270fc02:/data# exit
+exit
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % cd "/Users/brindha/Documents/R- microbiome analysis/16s/oral_microbiome"
+ls -lah
+
+total 1048656
+drwxr-xr-x  11 brindha  staff   352B 13 Feb 22:27 .
+drwxr-xr-x@ 11 brindha  staff   352B 13 Feb 22:27 ..
+-rw-r--r--@  1 brindha  staff   8.0K 13 Feb 21:28 .DS_Store
+drwxr-xr-x  10 brindha  staff   320B 13 Feb 22:17 dada2_output
+-rw-r--r--   1 brindha  staff   502B 13 Feb 22:04 manifest.csv
+-rw-r--r--   1 brindha  staff   213B 13 Feb 22:16 metadata_qiime.tsv
+-rw-r--r--@  1 brindha  staff    13K 13 Feb 21:39 qiime2-amplicon-2023.9-py38-osx-conda.yml
+drwxr-xr-x  15 brindha  staff   480B 13 Feb 20:17 raw_data
+drwxr-xr-x   6 brindha  staff   192B 13 Feb 22:11 reads_qza
+-rw-r--r--@  1 brindha  staff   507M 13 Feb 22:25 silva-138-99-nb-classifier.qza
+drwxr-xr-x   2 brindha  staff    64B 13 Feb 22:18 taxa
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % ls -lah *.qza
+
+-rw-r--r--@ 1 brindha  staff   507M 13 Feb 22:25 silva-138-99-nb-classifier.qza
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % docker run --platform linux/amd64 -it --rm \
+  -v "/Users/brindha/Documents/R- microbiome analysis/16s/oral_microbiome:/data" \
+  quay.io/qiime2/amplicon:2023.9
+
+(qiime2-amplicon-2023.9) root@bae6ec922645:/data# ls -lah /data/*.qza
+-rw-r--r-- 1 root root 508M Feb 13 16:55 /data/silva-138-99-nb-classifier.qza
+(qiime2-amplicon-2023.9) root@bae6ec922645:/data# qiime feature-classifier classify-sklearn \
+  --i-classifier silva-138-99-nb-classifier.qza \
+  --i-reads dada2_output/representative_sequences.qza \
+  --o-classification taxa/classification.qza
+Killed
+(qiime2-amplicon-2023.9) root@bae6ec922645:/data# qiime metadata tabulate \
+  --m-input-file taxa/classification.qza \
+  --o-visualization taxa/classification.qzv
+There was an issue with loading the file taxa/classification.qza as metadata:
+
+  Metadata file path doesn't exist, or the path points to something other than a file. Please check that the path exists, has read permissions, and points to a regular file (not a directory): taxa/classification.qza
+
+  There may be more errors present in the metadata file. To get a full report, sample/feature metadata files can be validated with Keemei: https://keemei.qiime2.org
+
+  Find details on QIIME 2 metadata requirements here: https://docs.qiime2.org/2023.9/tutorials/metadata/
+
+(qiime2-amplicon-2023.9) root@bae6ec922645:/data# qiime feature-classifier classify-sklearn \
+  --i-classifier silva-138-99-nb-classifier.qza \
+  --i-reads dada2_output/representative_sequences.qza \
+  --p-n-jobs 1 \
+  --p-reads-per-batch 1000 \
+  --o-classification taxa/classification.qza
+Killed
+(qiime2-amplicon-2023.9) root@bae6ec922645:/data# time="2026-02-13T23:48:22+05:30" level=error msg="Error waiting for container: Canceled: grpc: the client connection is closing: context canceled"
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % qiime metadata tabulate \
+  --m-input-file taxa/classification.qza \
+  --o-visualization taxa/classification.qzv
+
+zsh: command not found: qiime
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % qiime metadata tabulate \
+  --m-input-file taxa/classification.qza \
+  --o-visualization taxa/classification.qzv
+
+zsh: command not found: qiime
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % qiime phylogeny align-to-tree-mafft-fasttree \
+  --i-sequences dada2_output/representative_sequences.qza \
+  --o-alignment dada2_output/aligned_rep_seqs.qza \
+  --o-masked-alignment dada2_output/masked_aligned_rep_seqs.qza \
+  --o-tree dada2_output/unrooted_tree.qza \
+  --o-rooted-tree dada2_output/rooted_tree.qza
+
+zsh: command not found: qiime
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % cd "/Users/brindha/Documents/R- microbiome analysis/16s/oral_microbiome"
+
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % docker run --platform linux/amd64 -it --rm \
+  -v "$PWD:/data" \
+  quay.io/qiime2/amplicon:2023.9
+
+Unable to find image 'quay.io/qiime2/amplicon:2023.9' locally
+2023.9: Pulling from qiime2/amplicon
+5e399008a951: Pull complete 
+ba97185078aa: Pull complete 
+129bc9a4304f: Pull complete 
+b618aff30f32: Pull complete 
+c930e7550a74: Pull complete 
+6428d7014225: Pull complete 
+ff3c2f6c04c6: Pull complete 
+361ed8a60411: Pull complete 
+b143fb88a643: Pull complete 
+e67fdae35593: Pull complete 
+4f4fb700ef54: Pull complete 
+dd0a4e6ed183: Pull complete 
+c768018868ef: Pull complete 
+650b3f17ba09: Pull complete 
+62aa66a9c405: Pull complete 
+d3a75b885149: Pull complete 
+de85e3f9426e: Pull complete 
+Digest: sha256:bb10a7577abe1f811e6d69ad1526bbda9aa8ae98fc24ace6a327ba9a3a1f056a
+Status: Downloaded newer image for quay.io/qiime2/amplicon:2023.9
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# cd "/Users/brindha/Documents/R- microbiome analysis/16s/oral_microbiome"
+bash: cd: /Users/brindha/Documents/R- microbiome analysis/16s/oral_microbiome: No such file or directory
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# cd "/Users/brindha/Documents/R- microbiome analysis/16s/oral_microbiome "
+bash: cd: /Users/brindha/Documents/R- microbiome analysis/16s/oral_microbiome : No such file or directory
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# cd "/Users/brindha/Documents/R- microbiome analysis/16s/oral_microbiome"
+bash: cd: /Users/brindha/Documents/R- microbiome analysis/16s/oral_microbiome: No such file or directory
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# cd /data
+ls
+dada2_output  metadata_qiime.tsv			 raw_data   silva-138-99-nb-classifier.qza
+manifest.csv  qiime2-amplicon-2023.9-py38-osx-conda.yml  reads_qza  taxa
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# ls raw_data
+ls dada2_output
+ls taxa
+SRR16600068_1.fastq.gz	SRR16600076_2.fastq.gz	SRR16600077_trim_1.fastq.gz  SRR16600081_2.fastq.gz
+SRR16600068_2.fastq.gz	SRR16600077_1.fastq.gz	SRR16600077_trim_2.fastq.gz  metadata4.csv
+SRR16600076_1.fastq.gz	SRR16600077_2.fastq.gz	SRR16600081_1.fastq.gz	     metadata4.tsv
+dada2_table_summary.qzv  denoising_stats.qzv  representative_sequences.qza  table.qza
+denoising_stats.qza	 rep_seqs.qzv	      stats.tsv			    table_summary.qzv
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# rm -f taxa/classification.qza taxa/classification.qzv
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime feature-classifier classify-sklearn \
+  --i-classifier silva-138-99-nb-classifier.qza \
+  --i-reads dada2_output/representative_sequences.qza \
+  --p-n-jobs 1 \
+  --p-reads-per-batch 500 \
+  --o-classification taxa/classification.qza
+Traceback (most recent call last):
+  File "/opt/conda/envs/qiime2-amplicon-2023.9/lib/python3.8/site-packages/qiime2/core/archive/archiver.py", line 367, in load
+    archive.mount(path)
+  File "/opt/conda/envs/qiime2-amplicon-2023.9/lib/python3.8/site-packages/qiime2/core/archive/archiver.py", line 198, in mount
+    self.extract(filepath)
+  File "/opt/conda/envs/qiime2-amplicon-2023.9/lib/python3.8/site-packages/qiime2/core/archive/archiver.py", line 212, in extract
+    zf.extract(name, path=str(filepath.parent))
+  File "/opt/conda/envs/qiime2-amplicon-2023.9/lib/python3.8/zipfile.py", line 1630, in extract
+    return self._extract_member(member, path, pwd)
+  File "/opt/conda/envs/qiime2-amplicon-2023.9/lib/python3.8/zipfile.py", line 1702, in _extract_member
+    shutil.copyfileobj(source, target)
+  File "/opt/conda/envs/qiime2-amplicon-2023.9/lib/python3.8/shutil.py", line 208, in copyfileobj
+    fdst_write(buf)
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/qiime2-amplicon-2023.9/lib/python3.8/site-packages/qiime2/sdk/result.py", line 80, in load
+    archiver = archive.Archiver.load(filepath)
+  File "/opt/conda/envs/qiime2-amplicon-2023.9/lib/python3.8/site-packages/qiime2/core/archive/archiver.py", line 378, in load
+    cls._destroy_temp_path(archive.uuid)
+  File "/opt/conda/envs/qiime2-amplicon-2023.9/lib/python3.8/site-packages/qiime2/core/archive/archiver.py", line 301, in _destroy_temp_path
+    cache.process_pool.remove(str(process_alias))
+  File "/opt/conda/envs/qiime2-amplicon-2023.9/lib/python3.8/site-packages/qiime2/core/cache.py", line 1637, in remove
+    with self.cache.lock:
+  File "/opt/conda/envs/qiime2-amplicon-2023.9/lib/python3.8/site-packages/qiime2/core/cache.py", line 292, in __enter__
+    self.flufl_lock.lock()
+  File "/opt/conda/envs/qiime2-amplicon-2023.9/lib/python3.8/site-packages/flufl/lock/_lockfile.py", line 328, in lock
+    self._write()
+  File "/opt/conda/envs/qiime2-amplicon-2023.9/lib/python3.8/site-packages/flufl/lock/_lockfile.py", line 493, in _write
+    fp.write(self._claimfile)
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/qiime2-amplicon-2023.9/lib/python3.8/site-packages/q2cli/util.py", line 488, in _load_input_file
+    artifact = qiime2.sdk.Result.load(fp)
+  File "/opt/conda/envs/qiime2-amplicon-2023.9/lib/python3.8/site-packages/qiime2/sdk/result.py", line 84, in load
+    raise ValueError(f'There was not enough space left on '
+ValueError: There was not enough space left on '/tmp' to extract the artifact 'silva-138-99-nb-classifier.qza'. (Try setting $TMPDIR to a directory with more space, or increasing the size of '/tmp')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/qiime2-amplicon-2023.9/lib/python3.8/site-packages/q2cli/click/type.py", line 116, in _convert_input
+    result, error = q2cli.util._load_input(value)
+  File "/opt/conda/envs/qiime2-amplicon-2023.9/lib/python3.8/site-packages/q2cli/util.py", line 397, in _load_input
+    artifact, error = _load_input_file(fp)
+  File "/opt/conda/envs/qiime2-amplicon-2023.9/lib/python3.8/site-packages/q2cli/util.py", line 494, in _load_input_file
+    raise ValueError(
+ValueError: It looks like you have an Artifact but are missing the plugin(s) necessary to load it. Artifact has type 'TaxonomicClassifier' and format 'TaxonomicClassiferTemporaryPickleDirFmt'
+
+There was a problem loading 'silva-138-99-nb-classifier.qza' as an artifact:
+
+  It looks like you have an Artifact but are missing the plugin(s) necessary to load it. Artifact has type 'TaxonomicClassifier' and format 'TaxonomicClassiferTemporaryPickleDirFmt'
+
+See above for debug info.
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# wget -O silva-138-99-nb-classifier.qza \
+  https://data.qiime2.org/2023.9/common/silva-138-99-nb-classifier.qza
+Will not apply HSTS. The HSTS database must be a regular and non-world-writable file.
+ERROR: could not open HSTS store at '/home/qiime2/.wget-hsts'. HSTS will be disabled.
+--2026-02-13 18:40:30--  https://data.qiime2.org/2023.9/common/silva-138-99-nb-classifier.qza
+Resolving data.qiime2.org (data.qiime2.org)... 54.200.1.12
+Connecting to data.qiime2.org (data.qiime2.org)|54.200.1.12|:443... connected.
+HTTP request sent, awaiting response... 302 FOUND
+Location: https://s3-us-west-2.amazonaws.com/qiime2-data/2023.9/common/silva-138-99-nb-classifier.qza [following]
+--2026-02-13 18:40:32--  https://s3-us-west-2.amazonaws.com/qiime2-data/2023.9/common/silva-138-99-nb-classifier.qza
+Resolving s3-us-west-2.amazonaws.com (s3-us-west-2.amazonaws.com)... 3.5.87.33, 3.5.86.36, 3.5.84.247, ...
+Connecting to s3-us-west-2.amazonaws.com (s3-us-west-2.amazonaws.com)|3.5.87.33|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 531637835 (507M) [binary/octet-stream]
+Saving to: ‘silva-138-99-nb-classifier.qza’
+
+silva-138-99-nb-classifie 100%[===================================>] 507.01M  4.28MB/s    in 2m 19s  
+
+2026-02-13 18:42:53 (3.64 MB/s) - ‘silva-138-99-nb-classifier.qza’ saved [531637835/531637835]
+
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime feature-classifier classify-sklearn \
+  --i-classifier silva-138-99-nb-classifier.qza \
+  --i-reads dada2_output/representative_sequences.qza \
+  --p-n-jobs 1 \
+  --p-reads-per-batch 500 \
+  --o-classification taxa/classification.qza
+Saved FeatureData[Taxonomy] to: taxa/classification.qza
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime metadata tabulate \
+  --m-input-file taxa/classification.qza \
+  --o-visualization taxa/classification.qzv
+Saved Visualization to: taxa/classification.qzv
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime metadata tabulate \
+  --m-input-file taxa/classification.qza \
+  --o-visualization taxa/classification.qzv
+Saved Visualization to: taxa/classification.qzv
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# head -n 5 metadata_qiime.tsv
+sample-id	Status	scientific_name
+SRR16600068	Periodontitis	human oral metagenome
+SRR16600076	Periodontitis	human oral metagenome
+SRR16600077	Healthy	human oral metagenome
+SRR16600081	Healthy	human oral metagenome
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime taxa barplot \
+  --i-table dada2_output/table.qza \
+  --i-taxonomy taxa/classification.qza \
+  --m-metadata-file metadata_qiime.tsv \
+  --o-visualization taxa/taxa_barplot.qzv
+Saved Visualization to: taxa/taxa_barplot.qzv
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime taxa filter-table \
+  --i-table dada2_output/table.qza \
+  --i-taxonomy taxa/classification.qza \
+  --p-exclude mitochondria,chloroplast \
+  --o-filtered-table dada2_output/table_no_contam.qza
+Saved FeatureTable[Frequency] to: dada2_output/table_no_contam.qza
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime feature-table filter-seqs \
+  --i-data dada2_output/representative_sequences.qza \
+  --i-table dada2_output/table_no_contam.qza \
+  --o-filtered-data dada2_output/rep_seqs_no_contam.qza
+Saved FeatureData[Sequence] to: dada2_output/rep_seqs_no_contam.qza
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime feature-table filter-seqs \
+  --i-data dada2_output/representative_sequences.qza \
+  --i-table dada2_output/table_no_contam.qza \
+  --o-filtered-data dada2_output/rep_seqs_no_contam.qza
+Saved FeatureData[Sequence] to: dada2_output/rep_seqs_no_contam.qza
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime feature-table summarize \
+  --i-table dada2_output/table_no_contam.qza \
+  --o-visualization dada2_output/table_no_contam_summary.qzv \
+  --m-sample-metadata-file metadata_qiime.tsv
+Saved Visualization to: dada2_output/table_no_contam_summary.qzv
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# wget -O sepp-refs-gg-13-8.qza \
+  "https://data.qiime2.org/2019.10/common/sepp-refs-gg-13-8.qza"
+Will not apply HSTS. The HSTS database must be a regular and non-world-writable file.
+ERROR: could not open HSTS store at '/home/qiime2/.wget-hsts'. HSTS will be disabled.
+--2026-02-13 18:51:38--  https://data.qiime2.org/2019.10/common/sepp-refs-gg-13-8.qza
+Resolving data.qiime2.org (data.qiime2.org)... 54.200.1.12
+Connecting to data.qiime2.org (data.qiime2.org)|54.200.1.12|:443... connected.
+HTTP request sent, awaiting response... 302 FOUND
+Location: https://s3-us-west-2.amazonaws.com/qiime2-data/2019.10/common/sepp-refs-gg-13-8.qza [following]
+--2026-02-13 18:51:39--  https://s3-us-west-2.amazonaws.com/qiime2-data/2019.10/common/sepp-refs-gg-13-8.qza
+Resolving s3-us-west-2.amazonaws.com (s3-us-west-2.amazonaws.com)... 52.92.186.128, 52.218.180.16, 52.92.242.96, ...
+Connecting to s3-us-west-2.amazonaws.com (s3-us-west-2.amazonaws.com)|52.92.186.128|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 50161069 (48M) [binary/octet-stream]
+Saving to: ‘sepp-refs-gg-13-8.qza’
+
+sepp-refs-gg-13-8.qza     100%[===================================>]  47.84M  5.64MB/s    in 10s     
+
+2026-02-13 18:51:51 (4.69 MB/s) - ‘sepp-refs-gg-13-8.qza’ saved [50161069/50161069]
+
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime fragment-insertion sepp \
+  --i-representative-sequences dada2_output/rep_seqs_no_contam.qza \
+  --i-reference-database sepp-refs-gg-13-8.qza \
+  --o-tree asvs-tree.qza \
+  --o-placements insertion-placements.qza \
+  --p-threads 2
+Plugin error from fragment-insertion:
+
+  Command '['run-sepp.sh', '/data/qiime2/root/data/917a8f89-2ec0-40af-b65c-6b110ef1c612/data/dna-sequences.fasta', 'q2-fragment-insertion', '-x', '2', '-A', '1000', '-P', '5000', '-a', '/data/qiime2/root/data/a14c6180-506b-4ecb-bacb-9cb30bc3044b/data/aligned-dna-sequences.fasta', '-t', '/data/qiime2/root/data/a14c6180-506b-4ecb-bacb-9cb30bc3044b/data/tree.nwk', '-r', '/data/qiime2/root/data/a14c6180-506b-4ecb-bacb-9cb30bc3044b/data/raxml-info.txt']' returned non-zero exit status 1.
+
+Debug info has been saved to /data/qiime2-q2cli-err-47k8wu_h.log
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime phylogeny align-to-tree-mafft-fasttree \
+  --i-sequences dada2_output/rep_seqs_no_contam.qza \
+  --o-alignment diversity/aligned_rep_seqs.qza \
+  --o-masked-alignment diversity/masked_aligned_rep_seqs.qza \
+  --o-tree diversity/unrooted_tree.qza \
+  --o-rooted-tree diversity/rooted_tree.qza
+Usage: qiime phylogeny align-to-tree-mafft-fasttree [OPTIONS]
+
+  This pipeline will start by creating a sequence alignment using MAFFT, after
+  which any alignment columns that are phylogenetically uninformative or
+  ambiguously aligned will be removed (masked). The resulting masked alignment
+  will be used to infer a phylogenetic tree and then subsequently rooted at
+  its midpoint. Output files from each step of the pipeline will be saved.
+  This includes both the unmasked and masked MAFFT alignment from q2-alignment
+  methods, and both the rooted and unrooted phylogenies from q2-phylogeny
+  methods.
+
+Inputs:
+  --i-sequences ARTIFACT FeatureData[Sequence]
+                          The sequences to be used for creating a fasttree
+                          based rooted phylogenetic tree.           [required]
+Parameters:
+  --p-n-threads VALUE Int % Range(1, None) | Str % Choices('auto')
+                          The number of threads. (Use `auto` to automatically
+                          use all available cores) This value is used when
+                          aligning the sequences and creating the tree with
+                          fasttree.                               [default: 1]
+  --p-mask-max-gap-frequency PROPORTION Range(0, 1, inclusive_end=True)
+                          The maximum relative frequency of gap characters in
+                          a column for the column to be retained. This
+                          relative frequency must be a number between 0.0 and
+                          1.0 (inclusive), where 0.0 retains only those
+                          columns without gap characters, and 1.0 retains all
+                          columns  regardless of gap character frequency. This
+                          value is used when masking the aligned sequences.
+                                                                [default: 1.0]
+  --p-mask-min-conservation PROPORTION Range(0, 1, inclusive_end=True)
+                          The minimum relative frequency of at least one
+                          non-gap character in a column for that column to be
+                          retained. This relative frequency must be a number
+                          between 0.0 and 1.0 (inclusive). For example, if a
+                          value of  0.4 is provided, a column will only be
+                          retained  if it contains at least one character that
+                          is present in at least 40% of the sequences. This
+                          value is used when masking the aligned sequences.
+                                                                [default: 0.4]
+  --p-parttree / --p-no-parttree
+                          This flag is required if the number of sequences
+                          being aligned are larger than 1000000. Disabled by
+                          default.                            [default: False]
+Outputs:
+  --o-alignment ARTIFACT FeatureData[AlignedSequence]
+                          The aligned sequences.                    [required]
+  --o-masked-alignment ARTIFACT FeatureData[AlignedSequence]
+                          The masked alignment.                     [required]
+  --o-tree ARTIFACT       The unrooted phylogenetic tree.
+    Phylogeny[Unrooted]                                             [required]
+  --o-rooted-tree ARTIFACT
+    Phylogeny[Rooted]     The rooted phylogenetic tree.             [required]
+Miscellaneous:
+  --output-dir PATH       Output unspecified results to a directory
+  --verbose / --quiet     Display verbose output to stdout and/or stderr
+                          during execution of this action. Or silence output
+                          if execution is successful (silence is golden).
+  --recycle-pool TEXT     Use a cache pool for pipeline resumption. QIIME 2
+                          will cache your results in this pool for reuse by
+                          future invocations. These pool are retained until
+                          deleted by the user. If not provided, QIIME 2 will
+                          create a pool which is automatically reused by
+                          invocations of the same action and removed if the
+                          action is successful. Note: these pools are local to
+                          the cache you are using.
+  --no-recycle            Do not recycle results from a previous failed
+                          pipeline run or save the results from this run for
+                          future recycling.
+  --parallel              Execute your action in parallel. This flag will use
+                          your default parallel config.
+  --parallel-config FILE  Execute your action in parallel using a config at
+                          the indicated path.
+  --use-cache DIRECTORY   Specify the cache to be used for the intermediate
+                          work of this pipeline. If not provided, the default
+                          cache under $TMP/qiime2/<uname> will be used.
+                          IMPORTANT FOR HPC USERS: If you are on an HPC system
+                          and are using parallel execution it is important to
+                          set this to a location that is globally accessible
+                          to all nodes in the cluster.
+  --example-data PATH     Write example data and exit.
+  --citations             Show citations and exit.
+  --help                  Show this message and exit.
+
+Examples:
+  # ### example: align to tree mafft fasttree
+  qiime phylogeny align-to-tree-mafft-fasttree \
+    --i-sequences rep-seqs.qza \
+    --o-alignment aligned-rep-seqs.qza \
+    --o-masked-alignment masked-aligned-rep-seqs.qza \
+    --o-tree unrooted-tree.qza \
+    --o-rooted-tree rooted-tree.qza
+  
+
+                  There were some problems with the command:                  
+ (1/4) Invalid value for '--o-alignment': Directory 'diversity' does not
+  exist, cannot save 'aligned_rep_seqs.qza' into it.
+ (2/4) Invalid value for '--o-masked-alignment': Directory 'diversity' does
+  not exist, cannot save 'masked_aligned_rep_seqs.qza' into it.
+ (3/4) Invalid value for '--o-tree': Directory 'diversity' does not exist,
+  cannot save 'unrooted_tree.qza' into it.
+ (4/4) Invalid value for '--o-rooted-tree': Directory 'diversity' does not
+  exist, cannot save 'rooted_tree.qza' into it.
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# cd /data
+mkdir -p diversity
+ls
+dada2_output	    qiime2				       reads_qza
+diversity	    qiime2-amplicon-2023.9-py38-osx-conda.yml  sepp-refs-gg-13-8.qza
+manifest.csv	    qiime2-q2cli-err-47k8wu_h.log	       silva-138-99-nb-classifier.qza
+metadata_qiime.tsv  raw_data				       taxa
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime phylogeny align-to-tree-mafft-fasttree \
+  --i-sequences dada2_output/rep_seqs_no_contam.qza \
+  --o-alignment diversity/aligned_rep_seqs.qza \
+  --o-masked-alignment diversity/masked_aligned_rep_seqs.qza \
+  --o-tree diversity/unrooted_tree.qza \
+  --o-rooted-tree diversity/rooted_tree.qza
+Plugin error from phylogeny:
+
+  Command '['mafft', '--preservecase', '--inputorder', '--thread', '1', '/data/qiime2/root/data/917a8f89-2ec0-40af-b65c-6b110ef1c612/data/dna-sequences.fasta']' returned non-zero exit status 1.
+
+Debug info has been saved to /data/qiime2-q2cli-err-1d9gq8ye.log
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime tools export \
+  --input-path dada2_output/rep_seqs_no_contam.qza \
+  --output-path repseqs_export
+Exported dada2_output/rep_seqs_no_contam.qza as DNASequencesDirectoryFormat to directory repseqs_export
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# ls -lah repseqs_export
+head -n 20 repseqs_export/dna-sequences.fasta
+total 4.0K
+drwxr-xr-x  3 root root   96 Feb 13 18:54 .
+drwxr-xr-x 19 root root  608 Feb 13 18:54 ..
+-rw-r--r--  1 root root 1.5K Feb 13 18:54 dna-sequences.fasta
+>280fcc5455ba2098ee50a2c4d5b4f540
+TACGGGTGGCAGCAGTGGGGAATCTTCCGCAATGGACGAAAGTCTGACGGAGCAACGCCGCGTGAGTGATGACGGCCTTCGGGTTGTAAAGCTCTGTTAATCGGGACGAAAGGCCTTCTTGCGAATAGTTAGAAGGATTGACGGTACCGGAATAGAAAGCCACGGCTAACTACGTGCCAGCAGCCGCGGTAATACGTAGGTGGCAAGCGTTGTCCGGAATTATTGGGCGTAAAGCGCGCGCAGGCGGATTGGTCAGTCTGTCTTAAAAGTTCGGGGCTTAACCCCGTGATGGGATGGAAACTGCCAATCTAGAGTATCGGAGAGGAAAGTGGAATTCCTAGTGTAGCGGTGAAATGCGTAGATATTAGGAAGAACACCAGTGGCGAAGGCGACTTTCTGGACGAAAACTGACGCTGAGGCGCGAAAGCCAGGGGAGCGAACGGGATTAGATACCC
+>f440a028c647717b7e9f657b5d37748f
+CTACGGGAGGCAGCAGTGAGGAATATTGGTCAATGGGCGAGAGCCTGAACCAGCCAAGTCGCGTGAAGGATGACTGTCTTATGGATTGTAAACTTCTTTTATACGGGAATAACAAGAGTCACGTGTGGCTCCCTGCATGTACCGTATGAATAAGCATCGGCTAACTCCGTGCCAGCAGCCGCGGTAATACGGAGGATGCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGTGCGTAGGCGGCCTGTTAAGTCAGCGGTGAAATCTAGGAGCTTAACTCCTAAATTGCCATTGATACTGGCGGGCTTGAGTGTAGATGAGGTAGGCGGAATGCGTGGTGTAGCGGTGGAATGCATAGATATCACGCAGAACTCCGATTGCGAAGGCAGCTTACTAAGGTACAACTGACGCTGAAGCACGAAAGCGTGGGTATCAAACAGGATTAGATACCC
+>94c5bb9bdd0e93c0dbb95598849f81a9
+CTACGGGAGGCAGCAGTGAGGAATATAGGTCAATGGACGTAAGTCTGAACCAGCCAAGTAGCGTGCAGGATGACGGCCCTATGGGTTGTAAACTGCTTTTGTTAGGGAGTAAATGAAGGCACGTGTGCTTTTTTGCATTTACCTTTCGAATAAGGACCGGCTAATTCCGTGCCAGCAGCCGCGGTAATACGGAAGGTCCAGGCGTTATCCGGATTTATTGGGTTTAAAGGGAGTGTAGGCGGTTTGTTAAGCGTGTTGTGAAATTTAGATGCTCAACATTTAACTTGCAGCGCGAACTGGCGAACTTGAGTGCACACAACGTATGCGGAATTCATGGTGTAGCGGTGAAATGCTTAGATATCATGAAGAACTCCGATTGCGAAGGCAGCGTACGGGAGTGTAACTGACGCTTAAGCTCGAAGGTGCGGGTATCGAACAGGATTAGATACCC
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# grep -c "^>" repseqs_export/dna-sequences.fasta
+3
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# grep -n -v "^[ACGTNacgtn>-]" repseqs_export/dna-sequences.fasta | head
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# cat repseqs_export/dna-sequences.fasta \
+  | tr 'acgtn' 'ACGTN' \
+  > repseqs_export/dna-sequences_clean.fasta
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime tools import \
+  --type 'FeatureData[Sequence]' \
+  --input-path repseqs_export/dna-sequences_clean.fasta \
+  --output-path dada2_output/rep_seqs_clean.qza
+Imported repseqs_export/dna-sequences_clean.fasta as DNASequencesDirectoryFormat to dada2_output/rep_seqs_clean.qza
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data#  qiime phylogeny align-to-tree-mafft-fasttree \
+  --i-sequences dada2_output/rep_seqs_clean.qza \
+  --o-alignment diversity/aligned_rep_seqs.qza \
+  --o-masked-alignment diversity/masked_aligned_rep_seqs.qza \
+  --o-tree diversity/unrooted_tree.qza \
+  --o-rooted-tree diversity/rooted_tree.qza
+Plugin error from phylogeny:
+
+  Command '['mafft', '--preservecase', '--inputorder', '--thread', '1', '/data/qiime2/root/data/77f8c82a-6be4-4cb6-8a99-93a3075bf61d/data/dna-sequences.fasta']' returned non-zero exit status 1.
+
+Debug info has been saved to /data/qiime2-q2cli-err-bkzwvbe0.log
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime tools export \
+  --input-path dada2_output/rep_seqs_no_contam.qza \
+  --output-path repseqs_export
+Exported dada2_output/rep_seqs_no_contam.qza as DNASequencesDirectoryFormat to directory repseqs_export
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# ls -lah repseqs_export
+total 8.0K
+drwxr-xr-x  4 root root  128 Feb 13 18:57 .
+drwxr-xr-x 22 root root  704 Feb 13 18:57 ..
+-rw-r--r--  1 root root 1.5K Feb 13 18:57 dna-sequences.fasta
+-rw-r--r--  1 root root 1.5K Feb 13 18:55 dna-sequences_clean.fasta
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# head -n 30 repseqs_export/dna-sequences.fasta
+>280fcc5455ba2098ee50a2c4d5b4f540
+TACGGGTGGCAGCAGTGGGGAATCTTCCGCAATGGACGAAAGTCTGACGGAGCAACGCCGCGTGAGTGATGACGGCCTTCGGGTTGTAAAGCTCTGTTAATCGGGACGAAAGGCCTTCTTGCGAATAGTTAGAAGGATTGACGGTACCGGAATAGAAAGCCACGGCTAACTACGTGCCAGCAGCCGCGGTAATACGTAGGTGGCAAGCGTTGTCCGGAATTATTGGGCGTAAAGCGCGCGCAGGCGGATTGGTCAGTCTGTCTTAAAAGTTCGGGGCTTAACCCCGTGATGGGATGGAAACTGCCAATCTAGAGTATCGGAGAGGAAAGTGGAATTCCTAGTGTAGCGGTGAAATGCGTAGATATTAGGAAGAACACCAGTGGCGAAGGCGACTTTCTGGACGAAAACTGACGCTGAGGCGCGAAAGCCAGGGGAGCGAACGGGATTAGATACCC
+>f440a028c647717b7e9f657b5d37748f
+CTACGGGAGGCAGCAGTGAGGAATATTGGTCAATGGGCGAGAGCCTGAACCAGCCAAGTCGCGTGAAGGATGACTGTCTTATGGATTGTAAACTTCTTTTATACGGGAATAACAAGAGTCACGTGTGGCTCCCTGCATGTACCGTATGAATAAGCATCGGCTAACTCCGTGCCAGCAGCCGCGGTAATACGGAGGATGCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGTGCGTAGGCGGCCTGTTAAGTCAGCGGTGAAATCTAGGAGCTTAACTCCTAAATTGCCATTGATACTGGCGGGCTTGAGTGTAGATGAGGTAGGCGGAATGCGTGGTGTAGCGGTGGAATGCATAGATATCACGCAGAACTCCGATTGCGAAGGCAGCTTACTAAGGTACAACTGACGCTGAAGCACGAAAGCGTGGGTATCAAACAGGATTAGATACCC
+>94c5bb9bdd0e93c0dbb95598849f81a9
+CTACGGGAGGCAGCAGTGAGGAATATAGGTCAATGGACGTAAGTCTGAACCAGCCAAGTAGCGTGCAGGATGACGGCCCTATGGGTTGTAAACTGCTTTTGTTAGGGAGTAAATGAAGGCACGTGTGCTTTTTTGCATTTACCTTTCGAATAAGGACCGGCTAATTCCGTGCCAGCAGCCGCGGTAATACGGAAGGTCCAGGCGTTATCCGGATTTATTGGGTTTAAAGGGAGTGTAGGCGGTTTGTTAAGCGTGTTGTGAAATTTAGATGCTCAACATTTAACTTGCAGCGCGAACTGGCGAACTTGAGTGCACACAACGTATGCGGAATTCATGGTGTAGCGGTGAAATGCTTAGATATCATGAAGAACTCCGATTGCGAAGGCAGCGTACGGGAGTGTAACTGACGCTTAAGCTCGAAGGTGCGGGTATCGAACAGGATTAGATACCC
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# head -n 30 repseqs_export/dna-sequences.fasta
+>280fcc5455ba2098ee50a2c4d5b4f540
+TACGGGTGGCAGCAGTGGGGAATCTTCCGCAATGGACGAAAGTCTGACGGAGCAACGCCGCGTGAGTGATGACGGCCTTCGGGTTGTAAAGCTCTGTTAATCGGGACGAAAGGCCTTCTTGCGAATAGTTAGAAGGATTGACGGTACCGGAATAGAAAGCCACGGCTAACTACGTGCCAGCAGCCGCGGTAATACGTAGGTGGCAAGCGTTGTCCGGAATTATTGGGCGTAAAGCGCGCGCAGGCGGATTGGTCAGTCTGTCTTAAAAGTTCGGGGCTTAACCCCGTGATGGGATGGAAACTGCCAATCTAGAGTATCGGAGAGGAAAGTGGAATTCCTAGTGTAGCGGTGAAATGCGTAGATATTAGGAAGAACACCAGTGGCGAAGGCGACTTTCTGGACGAAAACTGACGCTGAGGCGCGAAAGCCAGGGGAGCGAACGGGATTAGATACCC
+>f440a028c647717b7e9f657b5d37748f
+CTACGGGAGGCAGCAGTGAGGAATATTGGTCAATGGGCGAGAGCCTGAACCAGCCAAGTCGCGTGAAGGATGACTGTCTTATGGATTGTAAACTTCTTTTATACGGGAATAACAAGAGTCACGTGTGGCTCCCTGCATGTACCGTATGAATAAGCATCGGCTAACTCCGTGCCAGCAGCCGCGGTAATACGGAGGATGCGAGCGTTATCCGGATTTATTGGGTTTAAAGGGTGCGTAGGCGGCCTGTTAAGTCAGCGGTGAAATCTAGGAGCTTAACTCCTAAATTGCCATTGATACTGGCGGGCTTGAGTGTAGATGAGGTAGGCGGAATGCGTGGTGTAGCGGTGGAATGCATAGATATCACGCAGAACTCCGATTGCGAAGGCAGCTTACTAAGGTACAACTGACGCTGAAGCACGAAAGCGTGGGTATCAAACAGGATTAGATACCC
+>94c5bb9bdd0e93c0dbb95598849f81a9
+CTACGGGAGGCAGCAGTGAGGAATATAGGTCAATGGACGTAAGTCTGAACCAGCCAAGTAGCGTGCAGGATGACGGCCCTATGGGTTGTAAACTGCTTTTGTTAGGGAGTAAATGAAGGCACGTGTGCTTTTTTGCATTTACCTTTCGAATAAGGACCGGCTAATTCCGTGCCAGCAGCCGCGGTAATACGGAAGGTCCAGGCGTTATCCGGATTTATTGGGTTTAAAGGGAGTGTAGGCGGTTTGTTAAGCGTGTTGTGAAATTTAGATGCTCAACATTTAACTTGCAGCGCGAACTGGCGAACTTGAGTGCACACAACGTATGCGGAATTCATGGTGTAGCGGTGAAATGCTTAGATATCATGAAGAACTCCGATTGCGAAGGCAGCGTACGGGAGTGTAACTGACGCTTAAGCTCGAAGGTGCGGGTATCGAACAGGATTAGATACCC
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# grep -n -v "^[ACGTNacgtn>-]" repseqs_export/dna-sequences.fasta | head -n 20
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# cat repseqs_export/dna-sequences.fasta \
+  | tr 'acgtn' 'ACGTN' \
+  | sed 's/[^ACGTNacgtn>]/N/g' \
+  > repseqs_export/dna-sequences_clean.fasta
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime tools import \
+  --type 'FeatureData[Sequence]' \
+  --input-path repseqs_export/dna-sequences_clean.fasta \
+  --output-path dada2_output/rep_seqs_clean.qza
+Imported repseqs_export/dna-sequences_clean.fasta as DNASequencesDirectoryFormat to dada2_output/rep_seqs_clean.qza
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime phylogeny align-to-tree-mafft-fasttree \
+  --i-sequences dada2_output/rep_seqs_clean.qza \
+  --o-alignment diversity/aligned_rep_seqs.qza \
+  --o-masked-alignment diversity/masked_aligned_rep_seqs.qza \
+  --o-tree diversity/unrooted_tree.qza \
+  --o-rooted-tree diversity/rooted_tree.qza
+Plugin error from phylogeny:
+
+  Command '['mafft', '--preservecase', '--inputorder', '--thread', '1', '/data/qiime2/root/data/67c69867-f380-4279-87d4-186d8a00e345/data/dna-sequences.fasta']' returned non-zero exit status 1.
+
+Debug info has been saved to /data/qiime2-q2cli-err-z8x0z3sh.log
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime diversity core-metrics \
+  --i-table dada2_output/table_no_contam.qza \
+  --p-sampling-depth X \
+  --m-metadata-file metadata_qiime.tsv \
+  --p-n-jobs-or-threads 2 \
+  --output-dir diversity
+Usage: qiime diversity core-metrics [OPTIONS]
+
+  Applies a collection of diversity metrics (non-phylogenetic) to a feature
+  table.
+
+Inputs:
+  --i-table ARTIFACT FeatureTable[Frequency]
+                          The feature table containing the samples over which
+                          diversity metrics should be computed.     [required]
+Parameters:
+  --p-sampling-depth INTEGER
+    Range(1, None)        The total frequency that each sample should be
+                          rarefied to prior to computing diversity metrics.
+                                                                    [required]
+  --m-metadata-file METADATA...
+    (multiple arguments   The sample metadata to use in the emperor plots.
+     will be merged)                                                [required]
+  --p-with-replacement / --p-no-with-replacement
+                          Rarefy with replacement by sampling from the
+                          multinomial distribution instead of rarefying
+                          without replacement.                [default: False]
+  --p-n-jobs VALUE Int % Range(1, None) | Str % Choices('auto')
+                          [beta methods only] - The number of concurrent jobs
+                          to use in performing this calculation. May not
+                          exceed the number of available physical cores. If
+                          n-jobs = 'auto', one job will be launched for each
+                          identified CPU core on the host.        [default: 1]
+Outputs:
+  --o-rarefied-table ARTIFACT FeatureTable[Frequency]
+                          The resulting rarefied feature table.     [required]
+  --o-observed-features-vector ARTIFACT SampleData[AlphaDiversity]
+                          Vector of Observed Features values by sample.
+                                                                    [required]
+  --o-shannon-vector ARTIFACT SampleData[AlphaDiversity]
+                          Vector of Shannon diversity values by sample.
+                                                                    [required]
+  --o-evenness-vector ARTIFACT SampleData[AlphaDiversity]
+                          Vector of Pielou's evenness values by sample.
+                                                                    [required]
+  --o-jaccard-distance-matrix ARTIFACT
+    DistanceMatrix        Matrix of Jaccard distances between pairs of
+                          samples.                                  [required]
+  --o-bray-curtis-distance-matrix ARTIFACT
+    DistanceMatrix        Matrix of Bray-Curtis distances between pairs of
+                          samples.                                  [required]
+  --o-jaccard-pcoa-results ARTIFACT
+    PCoAResults           PCoA matrix computed from Jaccard distances between
+                          samples.                                  [required]
+  --o-bray-curtis-pcoa-results ARTIFACT
+    PCoAResults           PCoA matrix computed from Bray-Curtis distances
+                          between samples.                          [required]
+  --o-jaccard-emperor VISUALIZATION
+                          Emperor plot of the PCoA matrix computed from
+                          Jaccard.                                  [required]
+  --o-bray-curtis-emperor VISUALIZATION
+                          Emperor plot of the PCoA matrix computed from
+                          Bray-Curtis.                              [required]
+Miscellaneous:
+  --output-dir PATH       Output unspecified results to a directory
+  --verbose / --quiet     Display verbose output to stdout and/or stderr
+                          during execution of this action. Or silence output
+                          if execution is successful (silence is golden).
+  --recycle-pool TEXT     Use a cache pool for pipeline resumption. QIIME 2
+                          will cache your results in this pool for reuse by
+                          future invocations. These pool are retained until
+                          deleted by the user. If not provided, QIIME 2 will
+                          create a pool which is automatically reused by
+                          invocations of the same action and removed if the
+                          action is successful. Note: these pools are local to
+                          the cache you are using.
+  --no-recycle            Do not recycle results from a previous failed
+                          pipeline run or save the results from this run for
+                          future recycling.
+  --parallel              Execute your action in parallel. This flag will use
+                          your default parallel config.
+  --parallel-config FILE  Execute your action in parallel using a config at
+                          the indicated path.
+  --use-cache DIRECTORY   Specify the cache to be used for the intermediate
+                          work of this pipeline. If not provided, the default
+                          cache under $TMP/qiime2/<uname> will be used.
+                          IMPORTANT FOR HPC USERS: If you are on an HPC system
+                          and are using parallel execution it is important to
+                          set this to a location that is globally accessible
+                          to all nodes in the cluster.
+  --example-data PATH     Write example data and exit.
+  --citations             Show citations and exit.
+  --help                  Show this message and exit.
+
+                    There was a problem with the command:                     
+ (1/1?) No such option: --p-n-jobs-or-threads
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime diversity alpha-rarefaction \
+  --i-table dada2_output/table_no_contam.qza \
+  --p-max-depth X \
+  --p-steps 20 \
+  --m-metadata-file metadata_qiime.tsv \
+  --o-visualization diversity/rarefaction_curves.qzv
+Usage: qiime diversity alpha-rarefaction [OPTIONS]
+
+  Generate interactive alpha rarefaction curves by computing rarefactions
+  between `min_depth` and `max_depth`. The number of intermediate depths to
+  compute is controlled by the `steps` parameter, with n `iterations` being
+  computed at each rarefaction depth. If sample metadata is provided, samples
+  may be grouped based on distinct values within a metadata column.
+
+Inputs:
+  --i-table ARTIFACT FeatureTable[Frequency]
+                          Feature table to compute rarefaction curves from.
+                                                                    [required]
+  --i-phylogeny ARTIFACT  Optional phylogeny for phylogenetic metrics.
+    Phylogeny[Rooted]                                               [optional]
+Parameters:
+  --p-max-depth INTEGER   The maximum rarefaction depth. Must be greater than
+    Range(1, None)        min-depth.                                [required]
+  --p-metrics TEXT... Choices('ace', 'berger_parker_d', 'brillouin_d',
+    'chao1', 'dominance', 'doubles', 'enspie', 'faith_pd', 'fisher_alpha',
+    'gini_index', 'goods_coverage', 'heip_e', 'lladser_pe', 'margalef',
+    'mcintosh_d', 'mcintosh_e', 'menhinick', 'michaelis_menten_fit',
+    'observed_features', 'pielou_e', 'robbins', 'shannon', 'simpson',
+    'simpson_e', 'singles')
+                          The metrics to be measured. By default computes
+                          observed_features, shannon, and if phylogeny is
+                          provided, faith_pd.                       [optional]
+  --m-metadata-file METADATA...
+    (multiple arguments   The sample metadata.
+     will be merged)                                                [optional]
+  --p-min-depth INTEGER   The minimum rarefaction depth.
+    Range(1, None)                                                [default: 1]
+  --p-steps INTEGER       The number of rarefaction depths to include between
+    Range(2, None)        min-depth and max-depth.               [default: 10]
+  --p-iterations INTEGER  The number of rarefied feature tables to compute at
+    Range(1, None)        each step.                             [default: 10]
+Outputs:
+  --o-visualization VISUALIZATION
+                                                                    [required]
+Miscellaneous:
+  --output-dir PATH       Output unspecified results to a directory
+  --verbose / --quiet     Display verbose output to stdout and/or stderr
+                          during execution of this action. Or silence output
+                          if execution is successful (silence is golden).
+  --example-data PATH     Write example data and exit.
+  --citations             Show citations and exit.
+  --help                  Show this message and exit.
+
+                    There was a problem with the command:                     
+ (1/1) Invalid value for '--p-max-depth': received <X> as an argument, which
+  is incompatible with parameter type: Int % Range(1, None)
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime feature-table summarize \
+  --i-table dada2_output/table_no_contam.qza \
+  --o-visualization diversity/table_no_contam_summary.qzv
+Saved Visualization to: diversity/table_no_contam_summary.qzv
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime diversity alpha-rarefaction \
+  --i-table dada2_output/table_no_contam.qza \
+  --p-max-depth 10440 \
+  --p-steps 20 \
+  --m-metadata-file metadata_qiime.tsv \
+  --o-visualization diversity/rarefaction_curves.qzv
+Plugin error from diversity:
+
+  Provided max_depth of 10440 is greater than the maximum sample total frequency of the feature_table (6).
+
+Debug info has been saved to /data/qiime2-q2cli-err-473v9r1r.log
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime feature-table summarize \
+  --i-table dada2_output/table.qza \
+  --o-visualization diversity/table_summary_original.qzv \
+  --m-sample-metadata-file metadata_qiime.tsv
+Saved Visualization to: diversity/table_summary_original.qzv
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime feature-table summarize \
+  --i-table dada2_output/table.qza \
+  --o-visualization diversity/table_summary_original.qzv \
+  --m-sample-metadata-file metadata_qiime.tsv
+Saved Visualization to: diversity/table_summary_original.qzv
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime taxa filter-table \
+  --i-table dada2_output/table.qza \
+  --i-taxonomy taxa/classification.qza \
+  --p-exclude mitochondria,chloroplast \
+  --o-filtered-table dada2_output/table_filt_contam.qza
+Saved FeatureTable[Frequency] to: dada2_output/table_filt_contam.qza
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime feature-table summarize \
+  --i-table dada2_output/table_filt_contam.qza \
+  --o-visualization diversity/table_filt_contam_summary.qzv \
+  --m-sample-metadata-file metadata_qiime.tsv
+Saved Visualization to: diversity/table_filt_contam_summary.qzv
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# head -n 10 metadata_qiime.tsv
+sample-id	Status	scientific_name
+SRR16600068	Periodontitis	human oral metagenome
+SRR16600076	Periodontitis	human oral metagenome
+SRR16600077	Healthy	human oral metagenome
+SRR16600081	Healthy	human oral metagenome
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime tools peek dada2_output/table.qza
+qiime tools peek dada2_output/table_no_contam.qza
+UUID:        ce0197eb-566f-4274-b5ef-6061535e5bc9
+Type:        FeatureTable[Frequency]
+Data format: BIOMV210DirFmt
+UUID:        b2084f58-7802-4fae-b377-0b4635c1ab1f
+Type:        FeatureTable[Frequency]
+Data format: BIOMV210DirFmt
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime feature-table summarize \
+  --i-table dada2_output/table.qza \
+  --o-visualization diversity/table_original_summary.qzv \
+  --m-sample-metadata-file metadata_qiime.tsv
+Saved Visualization to: diversity/table_original_summary.qzv
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime taxa filter-table \
+  --i-table dada2_output/table.qza \
+  --i-taxonomy taxa/classification.qza \
+  --p-exclude mitochondria,chloroplast \
+  --o-filtered-table dada2_output/table_no_contam.qza
+Saved FeatureTable[Frequency] to: dada2_output/table_no_contam.qza
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime feature-table summarize \
+  --i-table dada2_output/table_no_contam.qza \
+  --o-visualization diversity/table_no_contam_summary.qzv \
+  --m-sample-metadata-file metadata_qiime.tsv
+Saved Visualization to: diversity/table_no_contam_summary.qzv
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime feature-table summarize \
+  --i-table dada2_output/table_no_contam.qza \
+  --o-visualization diversity/table_no_contam_summary.qzv \
+  --m-sample-metadata-file metadata_qiime.tsv
+Saved Visualization to: diversity/table_no_contam_summary.qzv
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime diversity alpha-rarefaction \
+  --i-table dada2_output/table_no_contam.qza \
+  --p-max-depth MINDEPTH \
+  --p-steps 20 \
+  --m-metadata-file metadata_qiime.tsv \
+  --o-visualization diversity/rarefaction_curves.qzv
+Usage: qiime diversity alpha-rarefaction [OPTIONS]
+
+  Generate interactive alpha rarefaction curves by computing rarefactions
+  between `min_depth` and `max_depth`. The number of intermediate depths to
+  compute is controlled by the `steps` parameter, with n `iterations` being
+  computed at each rarefaction depth. If sample metadata is provided, samples
+  may be grouped based on distinct values within a metadata column.
+
+Inputs:
+  --i-table ARTIFACT FeatureTable[Frequency]
+                          Feature table to compute rarefaction curves from.
+                                                                    [required]
+  --i-phylogeny ARTIFACT  Optional phylogeny for phylogenetic metrics.
+    Phylogeny[Rooted]                                               [optional]
+Parameters:
+  --p-max-depth INTEGER   The maximum rarefaction depth. Must be greater than
+    Range(1, None)        min-depth.                                [required]
+  --p-metrics TEXT... Choices('ace', 'berger_parker_d', 'brillouin_d',
+    'chao1', 'dominance', 'doubles', 'enspie', 'faith_pd', 'fisher_alpha',
+    'gini_index', 'goods_coverage', 'heip_e', 'lladser_pe', 'margalef',
+    'mcintosh_d', 'mcintosh_e', 'menhinick', 'michaelis_menten_fit',
+    'observed_features', 'pielou_e', 'robbins', 'shannon', 'simpson',
+    'simpson_e', 'singles')
+                          The metrics to be measured. By default computes
+                          observed_features, shannon, and if phylogeny is
+                          provided, faith_pd.                       [optional]
+  --m-metadata-file METADATA...
+    (multiple arguments   The sample metadata.
+     will be merged)                                                [optional]
+  --p-min-depth INTEGER   The minimum rarefaction depth.
+    Range(1, None)                                                [default: 1]
+  --p-steps INTEGER       The number of rarefaction depths to include between
+    Range(2, None)        min-depth and max-depth.               [default: 10]
+  --p-iterations INTEGER  The number of rarefied feature tables to compute at
+    Range(1, None)        each step.                             [default: 10]
+Outputs:
+  --o-visualization VISUALIZATION
+                                                                    [required]
+Miscellaneous:
+  --output-dir PATH       Output unspecified results to a directory
+  --verbose / --quiet     Display verbose output to stdout and/or stderr
+                          during execution of this action. Or silence output
+                          if execution is successful (silence is golden).
+  --example-data PATH     Write example data and exit.
+  --citations             Show citations and exit.
+  --help                  Show this message and exit.
+
+                    There was a problem with the command:                     
+ (1/1) Invalid value for '--p-max-depth': received <MINDEPTH> as an argument,
+  which is incompatible with parameter type: Int % Range(1, None)
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime feature-table summarize \
+  --i-table dada2_output/table_no_contam.qza \
+  --o-visualization diversity/table_no_contam_summary.qzv \
+  --m-sample-metadata-file metadata_qiime.tsv
+Saved Visualization to: diversity/table_no_contam_summary.qzv
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime diversity alpha-rarefaction \
+  --i-table dada2_output/table_no_contam.qza \
+  --p-max-depth 16000 \
+  --p-steps 20 \
+  --m-metadata-file metadata_qiime.tsv \
+  --o-visualization diversity/rarefaction_curves.qzv
+Plugin error from diversity:
+
+  Provided max_depth of 16000 is greater than the maximum sample total frequency of the feature_table (6).
+
+Debug info has been saved to /data/qiime2-q2cli-err-af66lkds.log
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime diversity core-metrics \
+  --i-table dada2_output/table_no_contam.qza \
+  --p-sampling-depth 16000 \
+  --m-metadata-file metadata_qiime.tsv \
+  --p-n-jobs-or-threads 2 \
+  --output-dir diversity/core_metrics
+Usage: qiime diversity core-metrics [OPTIONS]
+
+  Applies a collection of diversity metrics (non-phylogenetic) to a feature
+  table.
+
+Inputs:
+  --i-table ARTIFACT FeatureTable[Frequency]
+                          The feature table containing the samples over which
+                          diversity metrics should be computed.     [required]
+Parameters:
+  --p-sampling-depth INTEGER
+    Range(1, None)        The total frequency that each sample should be
+                          rarefied to prior to computing diversity metrics.
+                                                                    [required]
+  --m-metadata-file METADATA...
+    (multiple arguments   The sample metadata to use in the emperor plots.
+     will be merged)                                                [required]
+  --p-with-replacement / --p-no-with-replacement
+                          Rarefy with replacement by sampling from the
+                          multinomial distribution instead of rarefying
+                          without replacement.                [default: False]
+  --p-n-jobs VALUE Int % Range(1, None) | Str % Choices('auto')
+                          [beta methods only] - The number of concurrent jobs
+                          to use in performing this calculation. May not
+                          exceed the number of available physical cores. If
+                          n-jobs = 'auto', one job will be launched for each
+                          identified CPU core on the host.        [default: 1]
+Outputs:
+  --o-rarefied-table ARTIFACT FeatureTable[Frequency]
+                          The resulting rarefied feature table.     [required]
+  --o-observed-features-vector ARTIFACT SampleData[AlphaDiversity]
+                          Vector of Observed Features values by sample.
+                                                                    [required]
+  --o-shannon-vector ARTIFACT SampleData[AlphaDiversity]
+                          Vector of Shannon diversity values by sample.
+                                                                    [required]
+  --o-evenness-vector ARTIFACT SampleData[AlphaDiversity]
+                          Vector of Pielou's evenness values by sample.
+                                                                    [required]
+  --o-jaccard-distance-matrix ARTIFACT
+    DistanceMatrix        Matrix of Jaccard distances between pairs of
+                          samples.                                  [required]
+  --o-bray-curtis-distance-matrix ARTIFACT
+    DistanceMatrix        Matrix of Bray-Curtis distances between pairs of
+                          samples.                                  [required]
+  --o-jaccard-pcoa-results ARTIFACT
+    PCoAResults           PCoA matrix computed from Jaccard distances between
+                          samples.                                  [required]
+  --o-bray-curtis-pcoa-results ARTIFACT
+    PCoAResults           PCoA matrix computed from Bray-Curtis distances
+                          between samples.                          [required]
+  --o-jaccard-emperor VISUALIZATION
+                          Emperor plot of the PCoA matrix computed from
+                          Jaccard.                                  [required]
+  --o-bray-curtis-emperor VISUALIZATION
+                          Emperor plot of the PCoA matrix computed from
+                          Bray-Curtis.                              [required]
+Miscellaneous:
+  --output-dir PATH       Output unspecified results to a directory
+  --verbose / --quiet     Display verbose output to stdout and/or stderr
+                          during execution of this action. Or silence output
+                          if execution is successful (silence is golden).
+  --recycle-pool TEXT     Use a cache pool for pipeline resumption. QIIME 2
+                          will cache your results in this pool for reuse by
+                          future invocations. These pool are retained until
+                          deleted by the user. If not provided, QIIME 2 will
+                          create a pool which is automatically reused by
+                          invocations of the same action and removed if the
+                          action is successful. Note: these pools are local to
+                          the cache you are using.
+  --no-recycle            Do not recycle results from a previous failed
+                          pipeline run or save the results from this run for
+                          future recycling.
+  --parallel              Execute your action in parallel. This flag will use
+                          your default parallel config.
+  --parallel-config FILE  Execute your action in parallel using a config at
+                          the indicated path.
+  --use-cache DIRECTORY   Specify the cache to be used for the intermediate
+                          work of this pipeline. If not provided, the default
+                          cache under $TMP/qiime2/<uname> will be used.
+                          IMPORTANT FOR HPC USERS: If you are on an HPC system
+                          and are using parallel execution it is important to
+                          set this to a location that is globally accessible
+                          to all nodes in the cluster.
+  --example-data PATH     Write example data and exit.
+  --citations             Show citations and exit.
+  --help                  Show this message and exit.
+
+                    There was a problem with the command:                     
+ (1/1?) No such option: --p-n-jobs-or-threads
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime feature-table summarize \
+  --i-table dada2_output/table.qza \
+  --o-visualization diversity/check_table_original.qzv
+Saved Visualization to: diversity/check_table_original.qzv
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime feature-table summarize \
+  --i-table dada2_output/table_no_contam.qza \
+  --o-visualization diversity/check_table_no_contam.qzv
+Saved Visualization to: diversity/check_table_no_contam.qzv
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime feature-table summarize \
+  --i-table dada2_output/table_filt_contam.qza \
+  --o-visualization diversity/check_table_filt_contam.qzv
+Saved Visualization to: diversity/check_table_filt_contam.qzv
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# qiime diversity core-metrics \
+  --i-table dada2_output/table_no_contam.qza \
+  --p-sampling-depth 16000 \
+  --m-metadata-file metadata_qiime.tsv \
+  --output-dir diversity/core_metrics
+Plugin error from diversity:
+
+  The rarefied table contains no samples or features. Verify your table is valid and that you provided a shallow enough sampling depth.
+
+Debug info has been saved to /data/qiime2-q2cli-err-nx_nyygk.log
+(qiime2-amplicon-2023.9) root@98a3b2bd425c:/data# exit
+exit
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % cd "/Users/brindha/Documents/R- microbiome analysis/16s/oral_microbiome"
+
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % ls diversity
+
+check_table_filt_contam.qzv	table_filt_contam_summary.qzv	table_summary_original.qzv
+check_table_no_contam.qzv	table_no_contam_summary.qzv
+check_table_original.qzv	table_original_summary.qzv
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % qiime feature-table summarize \
+  --i-table dada2_output/table_no_contam.qza \
+  --o-visualization diversity/temp.qzv
+
+zsh: command not found: qiime
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % open diversity
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % qiime diversity core-metrics \
+  --i-table dada2_output/table_no_contam.qza \
+  --p-sampling-depth 2 \
+  --m-metadata-file metadata_qiime.tsv \
+  --output-dir diversity/core_metrics_depth2
+
+zsh: command not found: qiime
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % cd "/Users/brindha/Documents/R- microbiome analysis/16s/oral_microbiome"
+
+docker run --platform linux/amd64 -it --rm \
+  -v "$PWD:/data" \
+  quay.io/qiime2/amplicon:2023.9
+
+(qiime2-amplicon-2023.9) root@60b23688830a:/data# cd /data
+qiime diversity core-metrics \
+  --i-table dada2_output/table_no_contam.qza \
+  --p-sampling-depth 2 \
+  --m-metadata-file metadata_qiime.tsv \
+  --output-dir diversity/core_metrics_depth2
+Saved FeatureTable[Frequency] to: diversity/core_metrics_depth2/rarefied_table.qza
+Saved SampleData[AlphaDiversity] to: diversity/core_metrics_depth2/observed_features_vector.qza
+Saved SampleData[AlphaDiversity] to: diversity/core_metrics_depth2/shannon_vector.qza
+Saved SampleData[AlphaDiversity] to: diversity/core_metrics_depth2/evenness_vector.qza
+Saved DistanceMatrix to: diversity/core_metrics_depth2/jaccard_distance_matrix.qza
+Saved DistanceMatrix to: diversity/core_metrics_depth2/bray_curtis_distance_matrix.qza
+Saved PCoAResults to: diversity/core_metrics_depth2/jaccard_pcoa_results.qza
+Saved PCoAResults to: diversity/core_metrics_depth2/bray_curtis_pcoa_results.qza
+Saved Visualization to: diversity/core_metrics_depth2/jaccard_emperor.qzv
+Saved Visualization to: diversity/core_metrics_depth2/bray_curtis_emperor.qzv
+(qiime2-amplicon-2023.9) root@60b23688830a:/data# /data/diversity/core_metrics_depth2/
+bash: /data/diversity/core_metrics_depth2/: Is a directory
+(qiime2-amplicon-2023.9) root@60b23688830a:/data# qiime diversity alpha-group-significance \
+  --i-alpha-diversity diversity/core_metrics_depth2/shannon_vector.qza \
+  --m-metadata-file metadata_qiime.tsv \
+  --o-visualization diversity/core_metrics_depth2/shannon_group_significance.qzv
+Plugin error from diversity:
+
+  All numbers are identical in kruskal
+
+Debug info has been saved to /tmp/qiime2-q2cli-err-6u705ggk.log
+(qiime2-amplicon-2023.9) root@60b23688830a:/data# qiime feature-table summarize \
+  --i-table dada2_output/table.qza \
+  --o-visualization diversity/table_original_summary.qzv \
+  --m-sample-metadata-file metadata_qiime.tsv
+Saved Visualization to: diversity/table_original_summary.qzv
+(qiime2-amplicon-2023.9) root@60b23688830a:/data# cd /data
+qiime ...
+Error: QIIME 2 has no plugin/command named '...'.
+(qiime2-amplicon-2023.9) root@60b23688830a:/data# open diversity
+bash: open: command not found
+(qiime2-amplicon-2023.9) root@60b23688830a:/data# qiime feature-table summarize \
+  --i-table dada2_output/table.qza \
+  --o-visualization diversity/table_original_summary.qzv \
+  --m-sample-metadata-file metadata_qiime.tsv
+Saved Visualization to: diversity/table_original_summary.qzv
+(qiime2-amplicon-2023.9) root@60b23688830a:/data# qiime feature-table summarize \
+  --i-table dada2_output/table.qza \
+  --o-visualization diversity/table_original_summary.qzv \
+  --m-sample-metadata-file metadata_qiime.tsv
+Saved Visualization to: diversity/table_original_summary.qzv
+(qiime2-amplicon-2023.9) root@60b23688830a:/data# qiime metadata tabulate \
+  --m-input-file dada2_output/denoising_stats.qza \
+  --o-visualization dada2_output/denoising_stats_check.qzv
+Saved Visualization to: dada2_output/denoising_stats_check.qzv
+(qiime2-amplicon-2023.9) root@60b23688830a:/data# qiime feature-table summarize \
+  --i-table dada2_output/table_no_contam.qza \
+  --o-visualization diversity/table_no_contam_check.qzv \
+  --m-sample-metadata-file metadata_qiime.tsv
+Saved Visualization to: diversity/table_no_contam_check.qzv
+(qiime2-amplicon-2023.9) root@60b23688830a:/data# qiime metadata tabulate \
+  --m-input-file dada2_output/denoising_stats.qza \
+  --o-visualization dada2_output/denoising_stats_check.qzv
+Saved Visualization to: dada2_output/denoising_stats_check.qzv
+(qiime2-amplicon-2023.9) root@60b23688830a:/data# qiime feature-table summarize \
+  --i-table dada2_output/table.qza \
+  --o-visualization diversity/table_original_summary.qzv \
+  --m-sample-metadata-file metadata_qiime.tsv
+Saved Visualization to: diversity/table_original_summary.qzv
+(qiime2-amplicon-2023.9) root@60b23688830a:/data# exit
+exit
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % cd "/Users/brindha/Documents/R- microbiome analysis/16s/oral_microbiome"
+
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % qiime demux summarize \
+  --i-data reads_qza/reads.qza \
+  --o-visualization reads_qza/reads_summary.qzv
+
+zsh: command not found: qiime
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % cd "/Users/brindha/Documents/R- microbiome analysis/16s/oral_microbiome"
+
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % docker run --platform linux/amd64 -it --rm \
+  -v "$PWD:/data" \
+  quay.io/qiime2/amplicon:2023.9
+
+(qiime2-amplicon-2023.9) root@0ac0d86eab0f:/data# cd /data
+ls
+dada2_output	    qiime2				       qiime2-q2cli-err-z8x0z3sh.log
+diversity	    qiime2-amplicon-2023.9-py38-osx-conda.yml  raw_data
+hat3		    qiime2-q2cli-err-1d9gq8ye.log	       reads_qza
+infile		    qiime2-q2cli-err-473v9r1r.log	       repseqs_export
+manifest.csv	    qiime2-q2cli-err-47k8wu_h.log	       sepp-refs-gg-13-8.qza
+metadata_qiime.tsv  qiime2-q2cli-err-af66lkds.log	       silva-138-99-nb-classifier.qza
+orig		    qiime2-q2cli-err-bkzwvbe0.log	       taxa
+pre		    qiime2-q2cli-err-nx_nyygk.log
+(qiime2-amplicon-2023.9) root@0ac0d86eab0f:/data# mkdir -p /data/raw_data_backup
+cp /data/raw_data/*.fastq.gz /data/raw_data_backup/
+(qiime2-amplicon-2023.9) root@0ac0d86eab0f:/data# qiime demux summarize \
+  --i-data reads_qza/reads.qza \
+  --o-visualization reads_qza/reads_summary.qzv
+Saved Visualization to: reads_qza/reads_summary.qzv
+(qiime2-amplicon-2023.9) root@0ac0d86eab0f:/data# qiime dada2 denoise-paired \
+  --i-demultiplexed-seqs reads_qza/reads.qza \
+  --p-trunc-len-f 0 \
+  --p-trunc-len-r 0 \
+  --p-trim-left-f 0 \
+  --p-trim-left-r 0 \
+  --o-table dada2_debug/table.qza \
+  --o-representative-sequences dada2_debug/rep_seqs.qza \
+  --o-denoising-stats dada2_debug/stats.qza
+Usage: qiime dada2 denoise-paired [OPTIONS]
+
+  This method denoises paired-end sequences, dereplicates them, and filters
+  chimeras.
+
+Inputs:
+  --i-demultiplexed-seqs ARTIFACT SampleData[PairedEndSequencesWithQuality]
+                         The paired-end demultiplexed sequences to be
+                         denoised.                                  [required]
+Parameters:
+  --p-trunc-len-f INTEGER
+                         Position at which forward read sequences should be
+                         truncated due to decrease in quality. This truncates
+                         the 3' end of the of the input sequences, which will
+                         be the bases that were sequenced in the last cycles.
+                         Reads that are shorter than this value will be
+                         discarded. After this parameter is applied there must
+                         still be at least a 12 nucleotide overlap between the
+                         forward and reverse reads. If 0 is provided, no
+                         truncation or length filtering will be performed
+                                                                    [required]
+  --p-trunc-len-r INTEGER
+                         Position at which reverse read sequences should be
+                         truncated due to decrease in quality. This truncates
+                         the 3' end of the of the input sequences, which will
+                         be the bases that were sequenced in the last cycles.
+                         Reads that are shorter than this value will be
+                         discarded. After this parameter is applied there must
+                         still be at least a 12 nucleotide overlap between the
+                         forward and reverse reads. If 0 is provided, no
+                         truncation or length filtering will be performed
+                                                                    [required]
+  --p-trim-left-f INTEGER
+                         Position at which forward read sequences should be
+                         trimmed due to low quality. This trims the 5' end of
+                         the input sequences, which will be the bases that
+                         were sequenced in the first cycles.      [default: 0]
+  --p-trim-left-r INTEGER
+                         Position at which reverse read sequences should be
+                         trimmed due to low quality. This trims the 5' end of
+                         the input sequences, which will be the bases that
+                         were sequenced in the first cycles.      [default: 0]
+  --p-max-ee-f NUMBER    Forward reads with number of expected errors higher
+                         than this value will be discarded.     [default: 2.0]
+  --p-max-ee-r NUMBER    Reverse reads with number of expected errors higher
+                         than this value will be discarded.     [default: 2.0]
+  --p-trunc-q INTEGER    Reads are truncated at the first instance of a
+                         quality score less than or equal to this value. If
+                         the resulting read is then shorter than `trunc-len-f`
+                         or `trunc-len-r` (depending on the direction of the
+                         read) it is discarded.                   [default: 2]
+  --p-min-overlap INTEGER
+    Range(4, None)       The minimum length of the overlap required for
+                         merging the forward and reverse reads.  [default: 12]
+  --p-pooling-method TEXT Choices('independent', 'pseudo')
+                         The method used to pool samples for denoising.
+                         "independent": Samples are denoised indpendently.
+                         "pseudo": The pseudo-pooling method is used to
+                         approximate pooling of samples. In short, samples are
+                         denoised independently once, ASVs detected in at
+                         least 2 samples are recorded, and samples are
+                         denoised independently a second time, but this time
+                         with prior knowledge of the recorded ASVs and thus
+                         higher sensitivity to those ASVs.
+                                                      [default: 'independent']
+  --p-chimera-method TEXT Choices('consensus', 'none', 'pooled')
+                         The method used to remove chimeras. "none": No
+                         chimera removal is performed. "pooled": All reads are
+                         pooled prior to chimera detection. "consensus":
+                         Chimeras are detected in samples individually, and
+                         sequences found chimeric in a sufficient fraction of
+                         samples are removed.           [default: 'consensus']
+  --p-min-fold-parent-over-abundance NUMBER
+                         The minimum abundance of potential parents of a
+                         sequence being tested as chimeric, expressed as a
+                         fold-change versus the abundance of the sequence
+                         being tested. Values should be greater than or equal
+                         to 1 (i.e. parents should be more abundant than the
+                         sequence being tested). This parameter has no effect
+                         if chimera-method is "none".           [default: 1.0]
+  --p-allow-one-off / --p-no-allow-one-off
+                         Bimeras that are one-off from exact are also
+                         identified if the `allow-one-off` argument is TrueIf
+                         True, a sequence will be identified as bimera if it
+                         is one mismatch or indel away from an exact bimera.
+                                                              [default: False]
+  --p-n-threads INTEGER  The number of threads to use for multithreaded
+                         processing. If 0 is provided, all available cores
+                         will be used.                            [default: 1]
+  --p-n-reads-learn INTEGER
+                         The number of reads to use when training the error
+                         model. Smaller numbers will result in a shorter run
+                         time but a less reliable error model.
+                                                            [default: 1000000]
+  --p-hashed-feature-ids / --p-no-hashed-feature-ids
+                         If true, the feature ids in the resulting table will
+                         be presented as hashes of the sequences defining each
+                         feature. The hash will always be the same for the
+                         same sequence so this allows feature tables to be
+                         merged across runs of this method. You should only
+                         merge tables if the exact same parameters are used
+                         for each run.                         [default: True]
+Outputs:
+  --o-table ARTIFACT FeatureTable[Frequency]
+                         The resulting feature table.               [required]
+  --o-representative-sequences ARTIFACT FeatureData[Sequence]
+                         The resulting feature sequences. Each feature in the
+                         feature table will be represented by exactly one
+                         sequence, and these sequences will be the joined
+                         paired-end sequences.                      [required]
+  --o-denoising-stats ARTIFACT SampleData[DADA2Stats]
+                                                                    [required]
+Miscellaneous:
+  --output-dir PATH      Output unspecified results to a directory
+  --verbose / --quiet    Display verbose output to stdout and/or stderr
+                         during execution of this action. Or silence output if
+                         execution is successful (silence is golden).
+  --example-data PATH    Write example data and exit.
+  --citations            Show citations and exit.
+  --help                 Show this message and exit.
+
+Examples:
+  # ### example: denoise paired
+  qiime dada2 denoise-paired \
+    --i-demultiplexed-seqs demux-paired.qza \
+    --p-trunc-len-f 150 \
+    --p-trunc-len-r 140 \
+    --o-representative-sequences representative-sequences.qza \
+    --o-table table.qza \
+    --o-denoising-stats denoising-stats.qza
+  
+
+                  There were some problems with the command:                  
+ (1/3) Invalid value for '--o-table': Directory 'dada2_debug' does not exist,
+  cannot save 'table.qza' into it.
+ (2/3) Invalid value for '--o-representative-sequences': Directory
+  'dada2_debug' does not exist, cannot save 'rep_seqs.qza' into it.
+ (3/3) Invalid value for '--o-denoising-stats': Directory 'dada2_debug' does
+  not exist, cannot save 'stats.qza' into it.
+(qiime2-amplicon-2023.9) root@0ac0d86eab0f:/data# cd /data
+mkdir -p dada2_debug
+(qiime2-amplicon-2023.9) root@0ac0d86eab0f:/data# qiime dada2 denoise-paired \
+  --i-demultiplexed-seqs reads_qza/reads.qza \
+  --p-trunc-len-f 0 \
+  --p-trunc-len-r 0 \
+  --p-trim-left-f 0 \
+  --p-trim-left-r 0 \
+  --o-table dada2_debug/table.qza \
+  --o-representative-sequences dada2_debug/rep_seqs.qza \
+  --o-denoising-stats dada2_debug/stats.qza
+
+Saved FeatureTable[Frequency] to: dada2_debug/table.qza
+Saved FeatureData[Sequence] to: dada2_debug/rep_seqs.qza
+Saved SampleData[DADA2Stats] to: dada2_debug/stats.qza
+(qiime2-amplicon-2023.9) root@0ac0d86eab0f:/data# 
+(qiime2-amplicon-2023.9) root@0ac0d86eab0f:/data# cd /data
+(qiime2-amplicon-2023.9) root@0ac0d86eab0f:/data# cd /data
+(qiime2-amplicon-2023.9) root@0ac0d86eab0f:/data# mkdir -p dada2_debug
+(qiime2-amplicon-2023.9) root@0ac0d86eab0f:/data# qiime dada2 denoise-paired \
+  --i-demultiplexed-seqs reads_qza/reads.qza \
+  --p-trunc-len-f 150 \
+  --p-trunc-len-r 140 \
+  --o-representative-sequences dada2_debug/rep_seqs.qza \
+  --o-table dada2_debug/table.qza \
+  --o-denoising-stats dada2_debug/stats.qza
+Saved FeatureTable[Frequency] to: dada2_debug/table.qza
+Saved FeatureData[Sequence] to: dada2_debug/rep_seqs.qza
+Saved SampleData[DADA2Stats] to: dada2_debug/stats.qza
+(qiime2-amplicon-2023.9) root@0ac0d86eab0f:/data# --p-trunc-len-f 240
+--p-trunc-len-r 200
+bash: --p-trunc-len-f: command not found
+bash: --p-trunc-len-r: command not found
+(qiime2-amplicon-2023.9) root@0ac0d86eab0f:/data# --p-trunc-len-f 240
+--p-trunc-len-r 200
+bash: --p-trunc-len-f: command not found
+bash: --p-trunc-len-r: command not found
+(qiime2-amplicon-2023.9) root@0ac0d86eab0f:/data# --p-trunc-len-f 240
+bash: --p-trunc-len-f: command not found
+(qiime2-amplicon-2023.9) root@0ac0d86eab0f:/data# cd /data
+mkdir -p dada2_fixed
+
+qiime dada2 denoise-paired \
+  --i-demultiplexed-seqs reads_qza/reads.qza \
+  --p-trunc-len-f 240 \
+  --p-trunc-len-r 200 \
+  --o-table dada2_fixed/table.qza \
+  --o-representative-sequences dada2_fixed/rep_seqs.qza \
+  --o-denoising-stats dada2_fixed/stats.qza
+Saved FeatureTable[Frequency] to: dada2_fixed/table.qza
+Saved FeatureData[Sequence] to: dada2_fixed/rep_seqs.qza
+Saved SampleData[DADA2Stats] to: dada2_fixed/stats.qza
+(qiime2-amplicon-2023.9) root@0ac0d86eab0f:/data# qiime dada2 denoise-paired \
+  --i-demultiplexed-seqs reads_qza/reads_trimmed.qza \
+  --p-trunc-len-f 280 \
+  --p-trunc-len-r 220 \
+  --p-max-ee-f 2 \
+  --p-max-ee-r 3 \
+  --p-n-threads 2 \
+  --output-dir dada2_output_fixed
+Saved FeatureTable[Frequency] to: dada2_output_fixed/table.qza
+Saved FeatureData[Sequence] to: dada2_output_fixed/representative_sequences.qza
+Saved SampleData[DADA2Stats] to: dada2_output_fixed/denoising_stats.qza
+(qiime2-amplicon-2023.9) root@0ac0d86eab0f:/data# exit
+exit
+(base) brindha@Brindhas-MacBook-Air oral_microbiome % 
