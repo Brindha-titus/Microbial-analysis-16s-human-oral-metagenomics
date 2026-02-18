@@ -1,0 +1,5 @@
+Feature ID	Taxon	Confidence
+#q2:types	categorical	categorical
+280fcc5455ba2098ee50a2c4d5b4f540	d__Bacteria; p__Firmicutes; c__Negativicutes; o__Veillonellales-Selenomonadales; f__Veillonellaceae; g__Veillonella	0.9999998995044934
+f440a028c647717b7e9f657b5d37748f	d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__Bacteroidales; f__Porphyromonadaceae; g__Porphyromonas	0.9999985730313402
+94c5bb9bdd0e93c0dbb95598849f81a9	d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__Bacteroidales; f__Prevotellaceae; g__Prevotella; s__Prevotella_aurantiaca	0.9998958374746255
